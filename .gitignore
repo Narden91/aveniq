@@ -71,3 +71,5 @@ artifacts/
 # Aveniq trace logs
 .aveniq_traces.jsonl
 *.traces.jsonl
+
+research/

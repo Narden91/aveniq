@@ -7,7 +7,7 @@ from types import SimpleNamespace
 
 from benchmarks.dataset import load_adaptive_routing_dataset
 from benchmarks.suite import BenchmarkCase, BenchmarkReport, BenchmarkResult, BenchmarkSuite
-from research.downstream_eval import RecordingLayaPolicy
+from research.downstream_baseline import RecordingLayaPolicy
 from research.routing_eval import CONFIG, choose_threshold, routing_metrics
 from src.aveniq.policy.laya_policy import LayaPolicy
 

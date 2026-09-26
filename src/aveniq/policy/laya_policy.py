@@ -17,7 +17,7 @@ from .engine import PolicyEngine
 from .rule_policy import RulePolicy
 
 PolicyMode = Literal["disabled", "shadow", "control"]
-DEFAULT_CHECKPOINT = "convaiinnovations/laya"
+DEFAULT_CHECKPOINT = "convaiinnovations/laya-typed-decisions"
 QUESTIONS = {
     "execution_class": {
         "type": "choice",
