@@ -88,6 +88,8 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
             "runtime_failure",
             "provider_token_limit",
             "provider_timeout",
+            "provider_connection_error",
+            "provider_failure",
             "task_check_failure",
         )
     }

@@ -1,13 +1,16 @@
 import asyncio
+import json
 from pathlib import Path
 
 import pytest
 
+import research.counterfactual as counterfactual
 from research.calibrate_policy import _fit_temperature, _rule_metrics, _soften
 from research.counterfactual import (
     Candidate,
     RouteOutcome,
     SpecializationExample,
+    derive_conditional_direct_example,
     derive_example,
     failure_category,
     load_candidates,
@@ -91,9 +94,35 @@ def test_provider_interruption_never_supplies_a_label():
         SpecializationExample.model_validate(tampered)
 
 
+def test_conditional_direct_label_requires_observed_zero_cost_passes():
+    rows = [outcome("direct", True, 0), outcome("single_expert", True, 0.02)]
+    example = derive_conditional_direct_example(candidate(), rows)
+    assert example.execution_class == "direct"
+    assert len(example.candidate_route_outcomes) == 2
+    assert derive_conditional_direct_example(candidate(), [
+        outcome("direct", False, 0), rows[1],
+    ]) is None
+    assert derive_conditional_direct_example(candidate(), [
+        outcome("direct", True, 0.001), rows[1],
+    ]) is None
+    interrupted = outcome("single_expert", False, None).model_copy(update={
+        "failure_category": "provider_token_limit", "error": "quota exhausted",
+    })
+    assert derive_conditional_direct_example(candidate(), [rows[0], interrupted]) is None
+    tampered = example.model_dump()
+    tampered["candidate_route_outcomes"] = [rows[0].model_dump()]
+    with pytest.raises(ValueError, match="Every candidate route"):
+        SpecializationExample.model_validate(tampered)
+
+
 def test_failure_categories_keep_provider_limits_separate():
     assert failure_category("tokens per minute exceeded", False) == "provider_token_limit"
     assert failure_category("request timed out", False) == "provider_timeout"
+    assert failure_category("Connection error.", False) == "provider_connection_error"
+    assert (
+        failure_category("Orchestrator: All 3 async retry attempts failed.", False)
+        == "provider_failure"
+    )
     assert failure_category("invalid response", False) == "runtime_failure"
     assert failure_category(None, False) == "task_check_failure"
     assert failure_category(None, False, True) == "routing_failure"
@@ -116,6 +145,50 @@ def test_archived_outcomes_cannot_supply_canonical_examples():
             Path("research/archive/v03_incomplete/aborted.jsonl"),
             Path("research/v03_examples.jsonl"),
         ))
+
+
+def test_quota_stop_preserves_attempt_and_reserves_final_test(tmp_path: Path, monkeypatch):
+    candidates_path = tmp_path / "candidates.jsonl"
+    cases = [
+        candidate(),
+        candidate().model_copy(update={
+            "id": "case_final", "query": "Return only farewell.", "split": "final_test",
+        }),
+    ]
+    candidates_path.write_text(
+        "".join(case.model_dump_json() + "\n" for case in cases), encoding="utf-8"
+    )
+    output = tmp_path / "route_outcomes.jsonl"
+    examples = tmp_path / "examples.jsonl"
+    monkeypatch.setattr(counterfactual, "MoEConfig", lambda: object())
+    monkeypatch.setattr(
+        counterfactual, "provider_settings", lambda config, timeout: {"provider": "stub"}
+    )
+    interrupted = True
+
+    async def fake_route(case, route, config, timeout, output_dir):
+        assert case.split == "training"
+        if interrupted:
+            return outcome(route, False, None).model_copy(update={
+                "failure_category": "provider_token_limit", "error": "quota exceeded",
+            })
+        return outcome(
+            route, True, {"direct": 0.01, "single_expert": 0.02, "system2": 0.03}[route]
+        )
+
+    monkeypatch.setattr(counterfactual, "execute_route", fake_route)
+    asyncio.run(run(candidates_path, output, examples))
+    assert not examples.exists()
+    assert json.loads((tmp_path / "run_status.json").read_text())["complete"] is False
+    interrupted = False
+    asyncio.run(run(candidates_path, output, examples))
+    rows = [json.loads(line) for line in output.read_text().splitlines()]
+    assert [(row["route"], row["attempt"]) for row in rows] == [
+        ("direct", 1), ("direct", 2), ("single_expert", 1), ("system2", 1),
+    ]
+    assert {row["id"] for row in rows} == {"case"}
+    assert json.loads(examples.read_text())["execution_class"] == "direct"
+    assert json.loads((tmp_path / "run_status.json").read_text())["complete"] is True
 
 
 def test_calibration_uses_only_passed_rows():

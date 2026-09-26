@@ -1,83 +1,251 @@
-# 🏛️ Architecture & System Design
+# AVENIQ Architecture
 
-**Programmatic Multi-Agent Orchestration** is a code-driven Mixture-of-Experts (MoE) system where an LLM orchestrator dynamically writes, verifies, and executes Python programs to coordinate specialized AI agents.
+## Design objective
 
----
+AVENIQ separates **policy**, **planning**, **execution**, and **measurement**.
 
-## 🎯 Core Concepts Explained Simply
+The runtime must not depend on a specific System-1 model or a specific orchestration framework.
 
-Instead of locking AI agents into rigid, predefined flowcharts (static DAGs), this framework empowers the master agent to write executable async Python code in real time:
+## Logical architecture
 
-```mermaid
-graph TD
-    Query([User Query]) --> Orchestrator[Master Orchestrator]
-    Registry[(Knowledge Registry\nScripts + Atoms + Motifs)] -.->|Few-shot retrieval| Orchestrator
-    Orchestrator -->|Synthesizes Python Script| ASTValidator[AST Security Filter]
-    ASTValidator -->|Passed AST Rules| Sandbox[Hardened Async Sandbox]
-    Sandbox -->|Executes| ExpertCall{query_agent}
-    ExpertCall -->|Technical| TechAgent[Technical Expert]
-    ExpertCall -->|Analytical| AnalAgent[Analytical Expert]
-    ExpertCall -->|Creative| CreatAgent[Creative Expert]
-    ExpertCall -->|General| GenAgent[General Expert]
-    TechAgent -->|Text + Semantic Atoms| Sandbox
-    AnalAgent -->|Text + Semantic Atoms| Sandbox
-    CreatAgent -->|Text + Semantic Atoms| Sandbox
-    GenAgent -->|Text + Semantic Atoms| Sandbox
-    Sandbox -->|Final Result + Trace DNA| Scorer[Execution Quality Scorer]
-    Scorer -->|Entropy-Budgeted Compression| Registry
-    Sandbox --> Output([Final Answer])
+```text
+                     Request
+                        |
+                        v
+                  RequestState
+                        |
+                        v
+                  PolicyEngine
+                 /      |      \
+                /       |       \
+             direct   single   system2
+               |        |        |
+               |        |        v
+               |        |   System2Planner
+               |        |        |
+               +--------+--------+
+                        |
+                        v
+                  ExecutionPlan
+                        |
+                        v
+                     Executor
+                        |
+                        v
+                     Verifier
+                        |
+                        v
+                   OutcomeTrace
 ```
 
----
+## Core abstractions
 
-## 🧩 1. The Unified Tool Contract
+### PolicyEngine
 
-All sub-agent communication adheres to a clean, strongly typed asynchronous contract:
+A replaceable decision layer.
 
-```python
-result = await query_agent(agent_type="technical", prompt="Analyze this algorithmic complexity")
+Expected implementations:
+
+```text
+RulePolicy
+LayaPolicy
+future learned policies
 ```
 
-- **`result.text`**: The primary synthesized textual output.
-- **`result.atoms`**: Discrete, verifiable units of knowledge (claims, evidence tags, confidence scores, and dependency IDs).
-- **`result.token_count`**: Token usage metrics for cost and telemetry.
-- **`result.duration_ms`**: Latency measurement for real-time profiling.
+The rest of the runtime should depend on the `PolicyEngine` contract rather than Laya directly.
 
----
+### PolicyDecision
 
-## ⚡ 2. AST Speculative Execution
+Typed policy output.
 
-Sequential async calls that have no data dependencies are automatically discovered and rewritten into parallel execution branches:
+Current primary research fields:
 
-```python
-# What the LLM wrote:
-res1 = await query_agent("technical", "Explain GIL")
-res2 = await query_agent("analytical", "Benchmark GIL impact")
-
-# What the AST Speculative Transformer executes:
-res1, res2 = await asyncio.gather(
-    query_agent("technical", "Explain GIL"),
-    query_agent("analytical", "Benchmark GIL impact"),
-)
+```text
+execution_class
+primary_expert
+confidence
 ```
 
-This delivers up to **2.5x latency reduction** on multi-expert queries without requiring the LLM to manually handle complex concurrency primitives.
+The current execution-class space is intentionally small:
 
----
+```text
+direct
+single_expert
+system2
+```
 
-## 🔒 3. Hardened Multi-Layer Sandbox
+Additional dimensions should be introduced only after the primary routing problem is solved.
 
-The execution environment guarantees safe, bounded execution:
-1. **Static AST Analysis**: Disallowed imports (`os`, `sys`, `subprocess`, `socket`), private attribute traversal (`__dict__`, `__globals__`), and forbidden statements are rejected before execution.
-2. **Restricted Runtime Scope**: Whitelisted builtins with customized, bounded `print()` streams and tracked agent dispatchers.
-3. **Execution Timeouts**: Strict timeout guards preventing infinite loops and hung processes.
+### ExecutionPlan
 
----
+Typed representation of execution.
 
-## 💾 4. Memory & Knowledge Graph Persistence
+Current minimal plan operations:
 
-The SQLite registry persists successful runs along 4 complementary dimensions:
-1. **Orchestration Scripts**: Compressed executable code blocks for semantic task retrieval.
-2. **Semantic Atoms**: Atomic claims and reasoning chunks (`script_atoms`).
-3. **Dependency Edges**: Directed graphs linking premise atoms to conclusion atoms (`atom_edges`).
-4. **Plan Motifs**: Repeating scheduling and orchestration patterns (`plan_motifs`).
+```text
+CALL
+PARALLEL
+SEQUENCE
+VERIFY
+RETURN
+```
+
+Generated Python is not the primary runtime representation.
+
+### System2Planner
+
+The inherited generative programmatic orchestrator.
+
+It should be invoked only when the policy decides that deterministic execution is insufficient.
+
+### Executor
+
+Runs deterministic plans or the output of the System-2 path.
+
+The inherited sandbox, AST validation, asynchronous expert execution, provider adapters, and retry logic remain useful infrastructure.
+
+### Verifier
+
+Determines whether the output satisfies the task requirement.
+
+Verification quality is central because AVENIQ training labels depend on knowing which execution paths actually succeed.
+
+Preferred verification order:
+
+1. deterministic checks
+2. executable tests
+3. structured schema checks
+4. reference checks
+5. semantic / judge-based checks
+
+### OutcomeTrace
+
+Every execution should generate structured telemetry.
+
+Typical fields:
+
+```text
+request_id
+policy checkpoint
+policy prediction
+confidence
+selected route
+actual route
+System-2 invoked
+experts called
+latency
+provider tokens
+estimated cost
+task-check result
+failure category
+```
+
+These traces form the basis for later specialization.
+
+## System-1 policy
+
+Current preferred zero-shot baseline:
+
+```text
+convaiinnovations/laya-typed-decisions
+```
+
+Current baselines:
+
+```text
+convaiinnovations/laya
+RulePolicy
+```
+
+The architecture must remain model-agnostic.
+
+## System-2 path
+
+The original project generated async Python programs dynamically.
+
+In AVENIQ, that mechanism remains useful but moves behind the policy layer.
+
+Conceptually:
+
+```text
+request
+   |
+   v
+PolicyEngine
+   |
+   +--> deterministic execution
+   |
+   +--> System2Planner
+            |
+            v
+      generated program
+            |
+            v
+       AST validation
+            |
+            v
+          sandbox
+```
+
+## Research data flow
+
+```text
+candidate query
+      |
+      +--> direct ---------> outcome
+      |
+      +--> single expert --> outcome
+      |
+      +--> System-2 -------> outcome
+                               |
+                               v
+                         quality checks
+                               |
+                               v
+                     minimum sufficient route
+                               |
+                               v
+                         training example
+                               |
+                               v
+                        specialized policy
+```
+
+## Critical architectural rule
+
+Training labels must be derived from observed route outcomes, not from:
+
+- RulePolicy
+- the System-2 planner's chosen route
+- Laya's own prediction
+
+Otherwise AVENIQ would imitate an existing router rather than learn minimum sufficient compute.
+
+## Failure taxonomy
+
+Keep failures distinct:
+
+```text
+routing_failure
+runtime_failure
+provider_token_limit
+provider_timeout
+task_check_failure
+inference_error
+```
+
+Do not collapse provider failures into routing quality.
+
+## Current implementation focus
+
+The architecture currently optimizes for research validity rather than feature breadth.
+
+Deferred:
+
+- model-tier routing
+- online learning
+- MCP expansion
+- richer workflow language
+- UI redesign
+- dynamic memory policy
+- multi-GPU training

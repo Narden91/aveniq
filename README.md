@@ -15,7 +15,7 @@
 
 *Choose the minimum sufficient amount of AI computation for each request. Fast/local policy decisions handle simple cases; the generative programmatic orchestrator serves as the expensive System-2 fallback.*
 
-[📖 System Architecture](docs/ARCHITECTURE.md) · [🗜️ Motif Compression](docs/COMPRESSION.md) · [🧪 Benchmark Suite](docs/BENCHMARKS.md)
+[📖 System Architecture](docs/ARCHITECTURE.md) · [🧪 Benchmark Suite](docs/BENCHMARKS.md)
 
 </div>
 
@@ -105,8 +105,7 @@ graph TD
 ├── benchmarks/            # Benchmark harness, plotting engine, and slice suites
 ├── docs/                  # In-depth architectural & benchmark documentation
 │   ├── ARCHITECTURE.md    # System design, tool contract, sandbox security
-│   ├── BENCHMARKS.md      # CLI flags, test slices, and metric interpretations
-│   └── COMPRESSION.md     # Entropy-budgeted motif dictionary coding
+│   └── BENCHMARKS.md      # CLI flags, test slices, and metric interpretations
 ├── frontend/              # Modern React + Vite dashboard
 ├── src/
 │   ├── agents/            # Orchestrator agent & dynamic expert registry
