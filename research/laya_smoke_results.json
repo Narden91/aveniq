@@ -1,0 +1,142 @@
+{
+  "timestamp": 1790416609.4050372,
+  "checkpoint": "laya-router-v0.2",
+  "device": "cpu (cuda available for NVIDIA GeForce RTX 5080 Laptop GPU but sm kernel requires cpu fallback)",
+  "load_time_ms": 170.61,
+  "warmup_iterations": 20,
+  "measured_iterations": 100,
+  "latency_ms": {
+    "mean": 0.06,
+    "p50": 0.05,
+    "p95": 0.19,
+    "p99": 0.42
+  },
+  "examples": [
+    {
+      "label": "Direct simple fact",
+      "query": "What is the capital of France?",
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.83,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.0347,
+          "single_expert": 0.8503,
+          "system2": 0.1151
+        },
+        "primary_expert": {
+          "technical": 0.7826,
+          "analytical": 0.0958,
+          "creative": 0.0431,
+          "general": 0.0785
+        }
+      },
+      "latency_ms": 0.05
+    },
+    {
+      "label": "Single technical",
+      "query": "Explain how Python's GIL works and its implications for threads.",
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.83,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.0347,
+          "single_expert": 0.8503,
+          "system2": 0.1151
+        },
+        "primary_expert": {
+          "technical": 0.7826,
+          "analytical": 0.0958,
+          "creative": 0.0431,
+          "general": 0.0785
+        }
+      },
+      "latency_ms": 0.04
+    },
+    {
+      "label": "Single creative",
+      "query": "Write a short poem about the beauty of mathematics.",
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.8407,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.0347,
+          "single_expert": 0.8503,
+          "system2": 0.1151
+        },
+        "primary_expert": {
+          "technical": 0.0498,
+          "analytical": 0.0498,
+          "creative": 0.8184,
+          "general": 0.0821
+        }
+      },
+      "latency_ms": 0.04
+    },
+    {
+      "label": "Single analytical",
+      "query": "Compare REST and GraphQL APIs: pros, cons, and caching.",
+      "execution_class": "single_expert",
+      "primary_expert": "analytical",
+      "confidence": 0.8321,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.0347,
+          "single_expert": 0.8503,
+          "system2": 0.1151
+        },
+        "primary_expert": {
+          "technical": 0.0875,
+          "analytical": 0.7898,
+          "creative": 0.0435,
+          "general": 0.0792
+        }
+      },
+      "latency_ms": 0.04
+    },
+    {
+      "label": "Single general",
+      "query": "Tell me about Python.",
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.83,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.0347,
+          "single_expert": 0.8503,
+          "system2": 0.1151
+        },
+        "primary_expert": {
+          "technical": 0.7826,
+          "analytical": 0.0958,
+          "creative": 0.0431,
+          "general": 0.0785
+        }
+      },
+      "latency_ms": 0.04
+    },
+    {
+      "label": "System-2 complex multi-stage",
+      "query": "Orchestrate an end-to-end data pipeline with multi-agent cross-correlation, scraping, and fault recovery.",
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.8806,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.0218,
+          "single_expert": 0.0976,
+          "system2": 0.8806
+        },
+        "primary_expert": {
+          "technical": 0.7826,
+          "analytical": 0.0958,
+          "creative": 0.0431,
+          "general": 0.0785
+        }
+      },
+      "latency_ms": 0.05
+    }
+  ]
+}

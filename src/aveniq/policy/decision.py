@@ -83,3 +83,8 @@ class PolicyDecision(BaseModel):
         default_factory=dict,
         description="Arbitrary policy engine metadata",
     )
+    token_usage: Optional[Dict[str, Any]] = Field(
+        default=None,
+        description="Token usage for generative policies (null for non-generative Laya)",
+    )
+

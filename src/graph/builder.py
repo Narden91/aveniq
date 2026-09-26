@@ -98,6 +98,10 @@ class MoEGraphBuilder:
         metadata["execution_path"] = execution_path
         if "laya_shadow" in decision.raw_predictions:
             metadata["laya_shadow"] = decision.raw_predictions["laya_shadow"]
+        if "laya_metadata" in decision.raw_predictions:
+            metadata["laya_metadata"] = decision.raw_predictions["laya_metadata"]
+        elif "laya_metadata" in decision.metadata:
+            metadata["laya_metadata"] = decision.metadata["laya_metadata"]
 
         reasoning_step = {
             "step": "policy",
@@ -274,7 +278,7 @@ class MoEGraphBuilder:
             error=state.get("code_execution_error") or None,
             query=state.get("query", ""),
             final_answer_snippet=str(state.get("final_answer", ""))[:200],
-            shadow_predictions=meta.get("laya_shadow", {}),
+            shadow_predictions=meta.get("laya_metadata") or meta.get("laya_shadow") or {},
         )
 
         self.trace_store.append(trace)

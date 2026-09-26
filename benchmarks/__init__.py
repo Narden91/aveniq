@@ -7,6 +7,7 @@ from .suite import (
     BenchmarkSuite,
     STANDARD_CASES,
     create_standard_suite,
+    create_research_suite,
 )
 
 __all__ = [
@@ -16,4 +17,6 @@ __all__ = [
     "BenchmarkSuite",
     "STANDARD_CASES",
     "create_standard_suite",
+    "create_research_suite",
 ]
+

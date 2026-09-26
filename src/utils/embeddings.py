@@ -19,6 +19,15 @@ except ImportError:
 _MODEL_CACHE: Dict[str, SentenceTransformer] = {}
 
 
+def _resolve_embedding_device() -> str:
+    try:
+        from src.aveniq.policy.laya_policy import resolve_device
+        dev, _ = resolve_device()
+        return dev.type
+    except Exception:
+        return "cpu"
+
+
 def get_embedding_model(model_name: str = "all-MiniLM-L6-v2") -> Optional[SentenceTransformer]:
     """Retrieve or load a singleton instance of an embedding model.
 
@@ -32,6 +41,8 @@ def get_embedding_model(model_name: str = "all-MiniLM-L6-v2") -> Optional[Senten
         import warnings
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
-            _MODEL_CACHE[model_name] = SentenceTransformer(model_name)
+            device = _resolve_embedding_device()
+            _MODEL_CACHE[model_name] = SentenceTransformer(model_name, device=device)
 
     return _MODEL_CACHE[model_name]
+

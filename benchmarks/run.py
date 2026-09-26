@@ -16,7 +16,7 @@ import tempfile
 from copy import deepcopy
 from pathlib import Path
 
-from benchmarks.suite import create_standard_suite
+from benchmarks.suite import create_research_suite, create_standard_suite
 
 
 def _emit_benchmark_outputs(
@@ -88,6 +88,14 @@ def main() -> None:
         "--compression-slice",
         action="store_true",
         help="Compare uncompressed registry against entropy-budgeted motif dictionary compression",
+    )
+    parser.add_argument(
+        "--dataset", type=str, default="",
+        help="Optional path to custom JSONL routing dataset (defaults to benchmarks/data/adaptive_routing.jsonl for adaptive slice)",
+    )
+    parser.add_argument(
+        "--laya-confidence-threshold", type=float, default=0.80,
+        help="Confidence threshold for Laya control mode (default: 0.80)",
     )
     parser.add_argument(
         "--mock-llm",
@@ -209,45 +217,39 @@ def main() -> None:
             variant_cfg.registry_db_path = str(temp_root / "variant.sqlite")
 
             if args.adaptive_slice:
-                from src.aveniq.policy import RulePolicy, LayaPolicy, PolicyDecision
+                from src.aveniq.policy import (
+                    AlwaysSystem2Policy,
+                    LayaPolicy,
+                    RulePolicy,
+                )
 
-                class _AlwaysSystem2Policy:
-                    def evaluate(self, query: str, context: Any = None) -> PolicyDecision:
-                        return PolicyDecision(
-                            execution_class="system2",
-                            needs_verification=True,
-                            max_agent_calls=5,
-                            confidence=1.0,
-                            reasoning="Forced System-2 baseline",
-                        )
-
-                    async def aevaluate(self, query: str, context: Any = None) -> PolicyDecision:
-                        return self.evaluate(query, context)
-
-                class _ForceDeterministicSingleExpertPolicy:
-                    def evaluate(self, query: str, context: Any = None) -> PolicyDecision:
-                        lowered = (query or "").lower()
-                        exp = "technical" if ("code" in lowered or "python" in lowered or "algorithm" in lowered or "search" in lowered or "gil" in lowered or "api" in lowered) else "general"
-                        if "poem" in lowered or "creative" in lowered or "story" in lowered or "pitch" in lowered:
-                            exp = "creative"
-                        elif "compare" in lowered or "analytical" in lowered:
-                            exp = "analytical"
-                        return PolicyDecision(
-                            execution_class="single_expert",
-                            primary_expert=exp,
-                            needs_verification=False,
-                            max_agent_calls=1,
-                            confidence=1.0,
-                            reasoning="Forced deterministic single expert",
-                        )
-
-                    async def aevaluate(self, query: str, context: Any = None) -> PolicyDecision:
-                        return self.evaluate(query, context)
+                suite = create_research_suite(args.dataset or None)
 
                 variant_names = {
-                    "always_system2": MoEGraphBuilder(baseline_cfg, policy_engine=_AlwaysSystem2Policy()).build(),
-                    "deterministic_single_expert": MoEGraphBuilder(variant_cfg, policy_engine=_ForceDeterministicSingleExpertPolicy()).build(),
-                    "laya_shadow_prediction": MoEGraphBuilder(cfg, policy_engine=LayaPolicy(shadow_mode=True, fallback_policy=RulePolicy())).build(),
+                    "always_system2": MoEGraphBuilder(
+                        baseline_cfg,
+                        policy_engine=AlwaysSystem2Policy(),
+                    ).build(),
+                    "rule_policy": MoEGraphBuilder(
+                        variant_cfg,
+                        policy_engine=RulePolicy(),
+                    ).build(),
+                    "laya_zero_shot_shadow": MoEGraphBuilder(
+                        cfg,
+                        policy_engine=LayaPolicy(
+                            mode="shadow",
+                            fallback_policy=RulePolicy(),
+                            confidence_threshold=args.laya_confidence_threshold,
+                        ),
+                    ).build(),
+                    "laya_zero_shot_control": MoEGraphBuilder(
+                        cfg,
+                        policy_engine=LayaPolicy(
+                            mode="control",
+                            fallback_policy=RulePolicy(),
+                            confidence_threshold=args.laya_confidence_threshold,
+                        ),
+                    ).build(),
                 }
                 slice_name = "adaptive_compute"
                 filter_pattern = args.filter
@@ -304,6 +306,7 @@ def main() -> None:
                     variant_names,
                     filter_pattern=filter_pattern,
                     repeats=repeats,
+                    is_mock_provider=bool(args.mock_llm),
                 )
             )
 
@@ -372,7 +375,9 @@ def main() -> None:
             graph,
             filter_pattern=args.filter,
             repeats=repeats,
+            is_mock_provider=bool(args.mock_llm),
         )
+
     )
 
     print(report.pretty_print())
