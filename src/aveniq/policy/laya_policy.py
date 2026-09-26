@@ -71,7 +71,14 @@ class LayaPolicy(PolicyEngine):
         query: str,
         context: Optional[Dict[str, Any]] = None,
     ) -> PolicyDecision:
-        laya_pred = self.predict_laya(query)
+        try:
+            laya_pred = self.predict_laya(query)
+        except Exception as e:
+            # Laya failure must never prevent execution; fall back to existing behavior
+            base_decision = self.fallback_policy.evaluate(query, context=context)
+            base_decision.raw_predictions["laya_shadow"] = {"error": str(e)}
+            base_decision.metadata["laya_shadow"] = {"error": str(e)}
+            return base_decision
 
         if self.shadow_mode:
             # Shadow mode: Execute fallback policy, but record Laya prediction in raw_predictions
