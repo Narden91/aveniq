@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import json
 import sys
 import tempfile
 from copy import deepcopy
@@ -66,6 +67,11 @@ def main() -> None:
         help="Optional custom title for the generated benchmark plot",
     )
     parser.add_argument(
+        "--adaptive-slice",
+        action="store_true",
+        help="Compare always-System-2 baseline vs deterministic single-expert vs Laya shadow prediction",
+    )
+    parser.add_argument(
         "--selection-bias-slice",
         action="store_true",
         help="Compare baseline routing against atom few-shot + metadata-biased candidate selection",
@@ -90,9 +96,9 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    slice_count = sum(bool(x) for x in (args.selection_bias_slice, args.warm_task_slice, args.compression_slice))
+    slice_count = sum(bool(x) for x in (args.adaptive_slice, args.selection_bias_slice, args.warm_task_slice, args.compression_slice))
     if slice_count > 1:
-        parser.error("Choose at most one of --selection-bias-slice, --warm-task-slice, or --compression-slice.")
+        parser.error("Choose at most one of --adaptive-slice, --selection-bias-slice, --warm-task-slice, or --compression-slice.")
 
     # Late import so benchmarks module can be imported without side-effects
     from benchmarks.plotting import build_comparison_payload, build_report_payload
@@ -110,21 +116,23 @@ def main() -> None:
             def __init__(self, model_name: str = "mock-model"):
                 self.model_name = model_name
 
-            async def ainvoke(self, prompt: Any) -> Any:
+            def _generate_response(self, prompt: Any) -> Any:
                 p_str = prompt if isinstance(prompt, str) else "\n".join(
                     getattr(m, "content", "") for m in prompt
                 )
                 p_lower = str(p_str).lower()
+                if "write an async python script" in p_lower or "candidate generation mode" in p_lower or "a previously generated script failed" in p_lower or "orchestrate" in p_lower:
+                    query_text = p_lower
+                    if 'user query: "' in p_lower:
+                        query_text = p_lower.split('user query: "', 1)[1].split('"', 1)[0]
+                    elif "user query:" in p_lower:
+                        query_text = p_lower.split("user query:", 1)[1].split("\n", 1)[0]
 
-                if "critical-thinker" in p_lower or "score" in p_lower:
-                    content = "SCORE: 0.95\nReason: High quality evaluation."
-                    prompt_toks, comp_toks = 60, 20
-                elif "write an async python script" in p_lower or "candidate generation mode" in p_lower:
-                    if "creative" in p_lower or "story" in p_lower or "poem" in p_lower:
+                    if "poem" in query_text or "creative" in query_text or "story" in query_text:
                         agent = "creative"
-                    elif "technical" in p_lower or "python" in p_lower or "code" in p_lower:
+                    elif "gil" in query_text or "threading" in query_text or "code" in query_text or "python" in query_text:
                         agent = "technical"
-                    elif "analytical" in p_lower or "compare" in p_lower:
+                    elif "graphql" in query_text or "rest" in query_text or "analytical" in query_text or "compare" in query_text:
                         agent = "analytical"
                     else:
                         agent = "general"
@@ -137,6 +145,9 @@ def main() -> None:
                         "```"
                     )
                     prompt_toks, comp_toks = 140, 60
+                elif "critical-thinker" in p_lower or "evaluate quality" in p_lower:
+                    content = "SCORE: 0.95\nReason: High quality evaluation."
+                    prompt_toks, comp_toks = 60, 20
                 else:
                     agent = "technical" if "technical" in p_lower else "general"
                     content = json.dumps({
@@ -170,6 +181,12 @@ def main() -> None:
                 }
                 return msg
 
+            def invoke(self, prompt: Any) -> Any:
+                return self._generate_response(prompt)
+
+            async def ainvoke(self, prompt: Any) -> Any:
+                return self._generate_response(prompt)
+
         # Patch LLMFactory
         original_create = LLMFactory.create_provider
         LLMFactory.create_provider = lambda *a, **kw: _MockLLMProvider(model_name="mock-model")
@@ -182,8 +199,8 @@ def main() -> None:
     suite = create_standard_suite()
     repeats = max(args.repeats, 1)
 
-    if args.selection_bias_slice or args.warm_task_slice or args.compression_slice:
-        with tempfile.TemporaryDirectory(prefix="moe-bench-") as temp_dir:
+    if args.adaptive_slice or args.selection_bias_slice or args.warm_task_slice or args.compression_slice:
+        with tempfile.TemporaryDirectory(prefix="aveniq-bench-") as temp_dir:
             temp_root = Path(temp_dir)
             baseline_cfg = deepcopy(cfg)
             baseline_cfg.registry_db_path = str(temp_root / "baseline.sqlite")
@@ -191,7 +208,50 @@ def main() -> None:
             variant_cfg = deepcopy(cfg)
             variant_cfg.registry_db_path = str(temp_root / "variant.sqlite")
 
-            if args.compression_slice:
+            if args.adaptive_slice:
+                from src.aveniq.policy import RulePolicy, LayaPolicy, PolicyDecision
+
+                class _AlwaysSystem2Policy:
+                    def evaluate(self, query: str, context: Any = None) -> PolicyDecision:
+                        return PolicyDecision(
+                            execution_class="system2",
+                            needs_verification=True,
+                            max_agent_calls=5,
+                            confidence=1.0,
+                            reasoning="Forced System-2 baseline",
+                        )
+
+                    async def aevaluate(self, query: str, context: Any = None) -> PolicyDecision:
+                        return self.evaluate(query, context)
+
+                class _ForceDeterministicSingleExpertPolicy:
+                    def evaluate(self, query: str, context: Any = None) -> PolicyDecision:
+                        lowered = (query or "").lower()
+                        exp = "technical" if ("code" in lowered or "python" in lowered or "algorithm" in lowered or "search" in lowered or "gil" in lowered or "api" in lowered) else "general"
+                        if "poem" in lowered or "creative" in lowered or "story" in lowered or "pitch" in lowered:
+                            exp = "creative"
+                        elif "compare" in lowered or "analytical" in lowered:
+                            exp = "analytical"
+                        return PolicyDecision(
+                            execution_class="single_expert",
+                            primary_expert=exp,
+                            needs_verification=False,
+                            max_agent_calls=1,
+                            confidence=1.0,
+                            reasoning="Forced deterministic single expert",
+                        )
+
+                    async def aevaluate(self, query: str, context: Any = None) -> PolicyDecision:
+                        return self.evaluate(query, context)
+
+                variant_names = {
+                    "always_system2": MoEGraphBuilder(baseline_cfg, policy_engine=_AlwaysSystem2Policy()).build(),
+                    "deterministic_single_expert": MoEGraphBuilder(variant_cfg, policy_engine=_ForceDeterministicSingleExpertPolicy()).build(),
+                    "laya_shadow_prediction": MoEGraphBuilder(cfg, policy_engine=LayaPolicy(shadow_mode=True, fallback_policy=RulePolicy())).build(),
+                }
+                slice_name = "adaptive_compute"
+                filter_pattern = args.filter
+            elif args.compression_slice:
                 baseline_cfg.enable_registry_compression = False
                 variant_cfg.enable_registry_compression = True
                 variant_names = {
@@ -246,6 +306,11 @@ def main() -> None:
                     repeats=repeats,
                 )
             )
+
+            for v in comparison.variants:
+                for r in v.report.results:
+                    if not r.success:
+                        print(f"[DEBUG FAILURE] {v.name} -> {r.case.name}: error='{r.error}'")
 
             if args.compression_slice:
                 def _get_avg_script_bytes(db_path: str) -> float:

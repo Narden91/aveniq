@@ -64,6 +64,11 @@ class BenchmarkResult:
     retry_count: int = 0
     retrieval_metrics: Dict[str, Any] = field(default_factory=dict)
     neighborhood_reuse_rate: float = 0.0
+    system2_invoked: bool = False
+    laya_confidence: float = 0.0
+    laya_shadow_prediction: Dict[str, Any] = field(default_factory=dict)
+    estimated_cost_usd: float = 0.0
+    execution_path: str = ""
 
 
 @dataclass
@@ -122,6 +127,44 @@ class BenchmarkReport:
         return statistics.mean(r.elapsed_seconds for r in self.results)
 
     @property
+    def latency_p50_seconds(self) -> float:
+        if not self.results:
+            return 0.0
+        times = sorted(r.elapsed_seconds for r in self.results)
+        n = len(times)
+        mid = n // 2
+        if n % 2 == 1:
+            return times[mid]
+        return (times[mid - 1] + times[mid]) / 2.0
+
+    @property
+    def latency_p95_seconds(self) -> float:
+        if not self.results:
+            return 0.0
+        times = sorted(r.elapsed_seconds for r in self.results)
+        idx = max(0, min(int(len(times) * 0.95), len(times) - 1))
+        return times[idx]
+
+    @property
+    def system2_invocation_rate_pct(self) -> float:
+        if not self.results:
+            return 0.0
+        return sum(1 for r in self.results if r.system2_invoked) / len(self.results) * 100.0
+
+    @property
+    def mean_cost_usd(self) -> float:
+        costs = [
+            float(r.token_summary.get("estimated_cost_usd", r.estimated_cost_usd or 0.0))
+            for r in self.results
+        ]
+        return statistics.mean(costs) if costs else 0.0
+
+    @property
+    def mean_laya_confidence(self) -> float:
+        confs = [r.laya_confidence for r in self.results if r.laya_confidence > 0.0]
+        return statistics.mean(confs) if confs else 0.0
+
+    @property
     def mean_neighborhood_reuse_rate(self) -> float:
         if not self.results:
             return 0.0
@@ -145,8 +188,13 @@ class BenchmarkReport:
             "success_rate_pct": round(self.success_rate_pct, 1),
             "recovery_rate_pct": round(self.recovery_rate_pct, 1),
             "elapsed_mean_seconds": round(self.mean_elapsed_seconds, 3),
+            "latency_p50_seconds": round(self.latency_p50_seconds, 3),
+            "latency_p95_seconds": round(self.latency_p95_seconds, 3),
             "retries_mean": round(self.mean_retries, 3),
             "tokens_mean": round(self.mean_tokens, 1),
+            "cost_mean_usd": round(self.mean_cost_usd, 5),
+            "system2_invocation_rate_pct": round(self.system2_invocation_rate_pct, 1),
+            "laya_confidence_mean": round(self.mean_laya_confidence, 3),
             "neighborhood_reuse_rate_mean": round(self.mean_neighborhood_reuse_rate, 3),
             "total_elapsed_seconds": round(self.total_elapsed, 2),
             "by_case": self.case_aggregates(),
@@ -287,8 +335,14 @@ class BenchmarkComparisonReport:
         baseline_metrics = {
             "success_rate_pct": baseline.report.success_rate_pct,
             "elapsed_mean_seconds": baseline.report.mean_elapsed_seconds,
-            "retries_mean": baseline.report.mean_retries,
+            "latency_p50_seconds": baseline.report.latency_p50_seconds,
+            "latency_p95_seconds": baseline.report.latency_p95_seconds,
             "tokens_mean": baseline.report.mean_tokens,
+            "cost_mean_usd": baseline.report.mean_cost_usd,
+            "system2_invocation_rate_pct": baseline.report.system2_invocation_rate_pct,
+            "expert_accuracy_pct": baseline.report.expert_accuracy,
+            "laya_confidence_mean": baseline.report.mean_laya_confidence,
+            "retries_mean": baseline.report.mean_retries,
             "neighborhood_reuse_rate_mean": baseline.report.mean_neighborhood_reuse_rate,
             **baseline_extra,
         }
@@ -300,8 +354,14 @@ class BenchmarkComparisonReport:
             metrics = {
                 "success_rate_pct": round(variant.report.success_rate_pct, 1),
                 "elapsed_mean_seconds": round(variant.report.mean_elapsed_seconds, 3),
-                "retries_mean": round(variant.report.mean_retries, 3),
+                "latency_p50_seconds": round(variant.report.latency_p50_seconds, 3),
+                "latency_p95_seconds": round(variant.report.latency_p95_seconds, 3),
                 "tokens_mean": round(variant.report.mean_tokens, 1),
+                "cost_mean_usd": round(variant.report.mean_cost_usd, 5),
+                "system2_invocation_rate_pct": round(variant.report.system2_invocation_rate_pct, 1),
+                "expert_accuracy_pct": round(variant.report.expert_accuracy, 1),
+                "laya_confidence_mean": round(variant.report.mean_laya_confidence, 3),
+                "retries_mean": round(variant.report.mean_retries, 3),
                 "neighborhood_reuse_rate_mean": round(variant.report.mean_neighborhood_reuse_rate, 3),
                 "failed": variant.report.failed,
                 **extra,
@@ -313,8 +373,14 @@ class BenchmarkComparisonReport:
                 "name": variant.name,
                 "delta_success_rate_pct": round(variant.report.success_rate_pct - baseline_metrics["success_rate_pct"], 1),
                 "delta_elapsed_mean_seconds": round(variant.report.mean_elapsed_seconds - baseline_metrics["elapsed_mean_seconds"], 3),
-                "delta_retries_mean": round(variant.report.mean_retries - baseline_metrics["retries_mean"], 3),
+                "delta_latency_p50_seconds": round(variant.report.latency_p50_seconds - baseline_metrics["latency_p50_seconds"], 3),
+                "delta_latency_p95_seconds": round(variant.report.latency_p95_seconds - baseline_metrics["latency_p95_seconds"], 3),
                 "delta_tokens_mean": round(variant.report.mean_tokens - baseline_metrics["tokens_mean"], 1),
+                "delta_cost_mean_usd": round(variant.report.mean_cost_usd - baseline_metrics["cost_mean_usd"], 5),
+                "delta_system2_invocation_rate_pct": round(variant.report.system2_invocation_rate_pct - baseline_metrics["system2_invocation_rate_pct"], 1),
+                "delta_expert_accuracy_pct": round(variant.report.expert_accuracy - baseline_metrics["expert_accuracy_pct"], 1),
+                "delta_laya_confidence_mean": round(variant.report.mean_laya_confidence - baseline_metrics["laya_confidence_mean"], 3),
+                "delta_retries_mean": round(variant.report.mean_retries - baseline_metrics["retries_mean"], 3),
                 "delta_neighborhood_reuse_rate_mean": round(variant.report.mean_neighborhood_reuse_rate - baseline_metrics["neighborhood_reuse_rate_mean"], 3),
             }
             for k, v in extra.items():
@@ -326,29 +392,37 @@ class BenchmarkComparisonReport:
 
     def pretty_print(self) -> str:
         lines = [
-            "=" * 60,
-            " BENCHMARK SLICE REPORT",
-            "=" * 60,
+            "=" * 78,
+            " AVENIQ BENCHMARK SLICE REPORT",
+            "=" * 78,
         ]
         summary = self.summary()
         for item in summary["variants"]:
-            metrics = item["metrics"]
+            m = item["metrics"]
             lines.append(
-                "  {name:18s} success={success_rate_pct:5.1f}% elapsed={elapsed_mean_seconds:.2f}s retries={retries_mean:.2f} tokens={tokens_mean:.1f} reuse={neighborhood_reuse_rate_mean:.2f} failed={failed}".format(
-                    name=item["name"],
-                    **metrics,
-                )
+                f"  {item['name']:26s} | success={m['success_rate_pct']:5.1f}% | "
+                f"lat(mean/p50/p95)={m['elapsed_mean_seconds']:.2f}/{m['latency_p50_seconds']:.2f}/{m['latency_p95_seconds']:.2f}s | "
+                f"tokens={m['tokens_mean']:5.0f} | cost=${m['cost_mean_usd']:.4f} | "
+                f"sys2_rate={m['system2_invocation_rate_pct']:5.1f}% | "
+                f"routing_acc={m['expert_accuracy_pct']:5.1f}% | "
+                f"laya_conf={m['laya_confidence_mean']:.2f}"
             )
 
         if summary["deltas"]:
-            lines.append("-" * 60)
+            lines.append("-" * 78)
             lines.append(" DELTAS VS BASELINE")
-            for delta in summary["deltas"]:
+            lines.append("-" * 78)
+            for d in summary["deltas"]:
                 lines.append(
-                    "  {name:18s} success={delta_success_rate_pct:+.1f} elapsed={delta_elapsed_mean_seconds:+.2f}s retries={delta_retries_mean:+.2f} tokens={delta_tokens_mean:+.1f} reuse={delta_neighborhood_reuse_rate_mean:+.2f}".format(**delta)
+                    f"  {d['name']:26s} | "
+                    f"d_success={d['delta_success_rate_pct']:+5.1f}% | "
+                    f"d_lat(mean/p50/p95)={d['delta_elapsed_mean_seconds']:+5.2f}/{d['delta_latency_p50_seconds']:+5.2f}/{d['delta_latency_p95_seconds']:+5.2f}s | "
+                    f"d_tokens={d['delta_tokens_mean']:+5.0f} | "
+                    f"d_sys2_rate={d['delta_system2_invocation_rate_pct']:+5.1f}% | "
+                    f"d_acc={d['delta_expert_accuracy_pct']:+5.1f}%"
                 )
 
-        lines.append("=" * 60)
+        lines.append("=" * 78)
         return "\n".join(lines)
 
 
@@ -409,18 +483,31 @@ class BenchmarkSuite:
                 try:
                     result_state = await graph.ainvoke(state)
                     elapsed = time.time() - t0
-                    retrieval_metrics = ((result_state.get("metadata") or {}).get("retrieval") or {})
+                    meta = result_state.get("metadata") or {}
+                    retrieval_metrics = meta.get("retrieval") or {}
+                    token_summary = result_state.get("token_usage", {}) or {}
+                    laya_shadow = meta.get("laya_shadow") or {}
+                    laya_conf = float(laya_shadow.get("confidence", 0.0) or 0.0)
+                    cost = float(token_summary.get("estimated_cost_usd", 0.0) or 0.0)
+                    system2_invoked = bool(meta.get("system2_invoked", False))
+                    execution_path = str(meta.get("execution_path", ""))
+
                     report.results.append(BenchmarkResult(
                         case=case,
                         success=True,
                         elapsed_seconds=elapsed,
-                        token_summary=result_state.get("token_usage", {}),
+                        token_summary=token_summary,
                         experts_used=result_state.get("selected_experts", []),
                         answer_snippet=(result_state.get("final_answer", "")[:200]),
                         repeat_index=repeat_index,
                         retry_count=max(int(result_state.get("code_execution_iterations", 0)) - 1, 0),
                         retrieval_metrics=retrieval_metrics,
                         neighborhood_reuse_rate=float(retrieval_metrics.get("neighborhood_reuse_rate", 0.0) or 0.0),
+                        system2_invoked=system2_invoked,
+                        laya_confidence=laya_conf,
+                        laya_shadow_prediction=laya_shadow,
+                        estimated_cost_usd=cost,
+                        execution_path=execution_path,
                     ))
                 except asyncio.CancelledError as exc:
                     elapsed = time.time() - t0

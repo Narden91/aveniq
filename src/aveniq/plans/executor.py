@@ -146,7 +146,7 @@ class PlanExecutorAdapter:
             try:
                 res = await q_fn(expert, prompt)
                 duration_ms = (time.time() - t0) * 1000
-                res_text = getattr(res, "result", str(res))
+                res_text = getattr(res, "text", getattr(res, "result", str(res)))
                 output_key = step.output_key or f"{expert}_response"
                 env[output_key] = res_text
                 env["last_output"] = res_text

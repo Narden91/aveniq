@@ -1,5 +1,7 @@
 """Builder for constructing the AVENIQ adaptive compute LangGraph workflow."""
 
+import asyncio
+import inspect
 import time
 from typing import Any, Dict, Optional
 from langgraph.graph import END, StateGraph
@@ -160,9 +162,10 @@ class MoEGraphBuilder:
 
     async def _system2_node(self, state: MoEState) -> Dict[str, Any]:
         """Delegate to generative code OrchestratorAgent (System-2 fallback)."""
-        # OrchestratorAgent.execute is synchronous
-        res = self.agents["orchestrator"].execute(state)
-        # Ensure metadata records system2 invocation
+        orch = self.agents["orchestrator"]
+        res = orch.execute(state)
+        if inspect.isawaitable(res):
+            res = await res
         meta = dict(res.get("metadata", {}) or state.get("metadata", {}) or {})
         meta["system2_invoked"] = True
         res["metadata"] = meta
