@@ -1,11 +1,12 @@
 [project]
-name = "programmatic-moe"
-version = "1.1.0"
-description = "Programmatic Multi-Agent Orchestration — Code-Driven MoE with LangGraph"
+name = "aveniq"
+version = "0.1.0"
+description = "AVENIQ — Adaptive Agent Runtime with Minimum Sufficient Compute"
 readme = "README.md"
+license = {text = "Apache-2.0"}
 requires-python = ">=3.11"
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "AVENIQ Team", email = "team@aveniq.ai"}
 ]
 dependencies = [
     "langgraph>=0.2.0",
@@ -16,10 +17,12 @@ dependencies = [
     "uvicorn[standard]>=0.32.0",
     "sentence-transformers>=3.0.0",
     "lancedb>=0.8.0",
-    "matplotlib>=3.9.0"
+    "matplotlib>=3.9.0",
+    "pydantic>=2.0.0"
 ]
 
 [project.scripts]
+aveniq = "main:main"
 moe = "main:main"
 
 [project.optional-dependencies]

@@ -1,19 +1,19 @@
 <div align="center">
 
-# 🧠 Programmatic Multi-Agent Orchestration
+# ⚡ AVENIQ
 
-**A Code-Driven Mixture of Experts (MoE) Architecture powered by LangGraph**
+**Adaptive Agent Runtime — Minimum Sufficient Compute Architecture**
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![LangGraph](https://img.shields.io/badge/LangGraph-≥0.2.0-green)](https://github.com/langchain-ai/langgraph)
 [![Groq](https://img.shields.io/badge/Groq-Fast_LLM-orange)](https://groq.com)
 [![OpenAI](https://img.shields.io/badge/OpenAI-optional-lightgrey)](https://openai.com)
 [![Anthropic](https://img.shields.io/badge/Anthropic-optional-lightgrey)](https://anthropic.com)
 [![React](https://img.shields.io/badge/React-UI-61DAFB)](https://react.dev)
-[![Tests](https://img.shields.io/badge/tests-165%20passed-brightgreen)]()
-[![Compression](https://img.shields.io/badge/MOSAIC--MoE-v6%20Compressed-blueviolet)]()
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen)]()
 
-*Stop writing static DAGs. Let AI write and execute its own multi-agent programs on the fly.*
+*Choose the minimum sufficient amount of AI computation for each request. Fast/local policy decisions handle simple cases; the generative programmatic orchestrator serves as the expensive System-2 fallback.*
 
 [📖 System Architecture](docs/ARCHITECTURE.md) · [🗜️ Motif Compression](docs/COMPRESSION.md) · [🧪 Benchmark Suite](docs/BENCHMARKS.md)
 

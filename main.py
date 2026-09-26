@@ -1,4 +1,4 @@
-"""CLI entry-point for the Programmatic Multi-Agent Orchestration system."""
+"""CLI entry-point for the AVENIQ adaptive compute agent runtime."""
 
 import argparse
 import asyncio
@@ -102,7 +102,7 @@ async def interactive_mode(model: str | None = None) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Programmatic Multi-Agent Orchestration CLI",
+        description="AVENIQ — Adaptive Agent Runtime CLI",
     )
     parser.add_argument("query", nargs="?", help="The query to process")
     parser.add_argument(

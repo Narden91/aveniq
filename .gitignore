@@ -53,3 +53,13 @@ orchestration_registry.db
 
 # Artifacts
 artifacts/
+
+# AGENTS.md
+# TELEMETRY.md
+# .ignore
+# opencode.json
+# .mcp.json
+
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/
