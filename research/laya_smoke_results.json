@@ -1,142 +1,2416 @@
 {
-  "timestamp": 1790416609.4050372,
-  "checkpoint": "laya-router-v0.2",
-  "device": "cpu (cuda available for NVIDIA GeForce RTX 5080 Laptop GPU but sm kernel requires cpu fallback)",
-  "load_time_ms": 170.61,
+  "timestamp_utc": "2026-09-26T11:21:17.156961+00:00",
+  "model": {
+    "laya_version": "0.3.20",
+    "checkpoint": "convaiinnovations/laya",
+    "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+    "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+    "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+    "parameter_count": 421293827,
+    "device": "cuda:0",
+    "parameter_device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "parameter_dtype": "torch.float32",
+    "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+    "cuda_compute_capability": [
+      12,
+      0
+    ],
+    "cuda_allocated_bytes_after_load": 1685436928,
+    "cuda_reserved_bytes_after_load": 1799356416
+  },
+  "config": {
+    "checkpoint": "convaiinnovations/laya",
+    "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+    "corpus_split_seed": "aveniq-v0.2.1",
+    "warmup_iterations": 20,
+    "measured_iterations": 100,
+    "false_bypass_penalty": 4,
+    "provider": "groq",
+    "provider_model": "openai/gpt-oss-120b",
+    "pricing_usd_per_million": {
+      "input": 0.15,
+      "output": 0.6
+    },
+    "pricing_source": "https://console.groq.com/docs/model/openai/gpt-oss-120b"
+  },
+  "torch_version": "2.10.0+cu128",
+  "load_latency_ms": 10556.677199958358,
   "warmup_iterations": 20,
   "measured_iterations": 100,
-  "latency_ms": {
-    "mean": 0.06,
-    "p50": 0.05,
-    "p95": 0.19,
-    "p99": 0.42
+  "typed_decision": {
+    "laya_version": "0.3.20",
+    "checkpoint": "convaiinnovations/laya",
+    "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+    "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+    "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+    "parameter_count": 421293827,
+    "device": "cuda:0",
+    "parameter_device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "parameter_dtype": "torch.float32",
+    "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+    "cuda_compute_capability": [
+      12,
+      0
+    ],
+    "cuda_allocated_bytes_after_load": 1685436928,
+    "cuda_reserved_bytes_after_load": 1799356416,
+    "execution_class": "direct",
+    "primary_expert": null,
+    "confidence": 0.581,
+    "probabilities": {
+      "execution_class": {
+        "direct": 0.581,
+        "single_expert": 0.2548,
+        "system2": 0.1642
+      },
+      "primary_expert": {
+        "technical": 0.2274,
+        "analytical": 0.1799,
+        "creative": 0.2999,
+        "general": 0.2927
+      }
+    },
+    "preprocessing_latency_ms": 11.275600001681596,
+    "forward_latency_ms": 951.6622999799438,
+    "total_policy_latency_ms": 964.8653999902308,
+    "latency_ms": 951.6622999799438,
+    "backend": "laya.Agent.system_one",
+    "token_usage": null
   },
-  "examples": [
+  "latency_ms": {
+    "preprocessing_latency_ms": {
+      "mean": 9.17972999974154,
+      "p50": 9.322450001491234,
+      "p95": 12.224100006278604,
+      "p99": 13.557099970057607
+    },
+    "forward_latency_ms": {
+      "mean": 65.88080900488421,
+      "p50": 64.69349999679253,
+      "p95": 86.5326999919489,
+      "p99": 93.17109995754436
+    },
+    "total_policy_latency_ms": {
+      "mean": 76.29164600104559,
+      "p50": 74.68985000741668,
+      "p95": 99.71300000324845,
+      "p99": 107.62870003236458
+    },
+    "wall_latency_ms": {
+      "mean": 76.32708299788646,
+      "p50": 74.71659997827373,
+      "p95": 99.75529997609556,
+      "p99": 107.67040000064299
+    }
+  },
+  "cuda_memory_after_measurement": {
+    "allocated_bytes": 1695005184,
+    "reserved_bytes": 2640314368,
+    "peak_allocated_bytes": 2441986560,
+    "peak_reserved_bytes": 2640314368
+  },
+  "samples": [
     {
-      "label": "Direct simple fact",
-      "query": "What is the capital of France?",
-      "execution_class": "single_expert",
-      "primary_expert": "technical",
-      "confidence": 0.83,
+      "query_index": 0,
+      "preprocessing_latency_ms": 8.294500003103167,
+      "forward_latency_ms": 50.690900010522455,
+      "total_policy_latency_ms": 59.69070002902299,
+      "wall_latency_ms": 59.71589998807758,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
       "probabilities": {
         "execution_class": {
-          "direct": 0.0347,
-          "single_expert": 0.8503,
-          "system2": 0.1151
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
         },
         "primary_expert": {
-          "technical": 0.7826,
-          "analytical": 0.0958,
-          "creative": 0.0431,
-          "general": 0.0785
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
         }
-      },
-      "latency_ms": 0.05
+      }
     },
     {
-      "label": "Single technical",
-      "query": "Explain how Python's GIL works and its implications for threads.",
-      "execution_class": "single_expert",
-      "primary_expert": "technical",
-      "confidence": 0.83,
-      "probabilities": {
-        "execution_class": {
-          "direct": 0.0347,
-          "single_expert": 0.8503,
-          "system2": 0.1151
-        },
-        "primary_expert": {
-          "technical": 0.7826,
-          "analytical": 0.0958,
-          "creative": 0.0431,
-          "general": 0.0785
-        }
-      },
-      "latency_ms": 0.04
-    },
-    {
-      "label": "Single creative",
-      "query": "Write a short poem about the beauty of mathematics.",
-      "execution_class": "single_expert",
-      "primary_expert": "creative",
-      "confidence": 0.8407,
-      "probabilities": {
-        "execution_class": {
-          "direct": 0.0347,
-          "single_expert": 0.8503,
-          "system2": 0.1151
-        },
-        "primary_expert": {
-          "technical": 0.0498,
-          "analytical": 0.0498,
-          "creative": 0.8184,
-          "general": 0.0821
-        }
-      },
-      "latency_ms": 0.04
-    },
-    {
-      "label": "Single analytical",
-      "query": "Compare REST and GraphQL APIs: pros, cons, and caching.",
-      "execution_class": "single_expert",
-      "primary_expert": "analytical",
-      "confidence": 0.8321,
-      "probabilities": {
-        "execution_class": {
-          "direct": 0.0347,
-          "single_expert": 0.8503,
-          "system2": 0.1151
-        },
-        "primary_expert": {
-          "technical": 0.0875,
-          "analytical": 0.7898,
-          "creative": 0.0435,
-          "general": 0.0792
-        }
-      },
-      "latency_ms": 0.04
-    },
-    {
-      "label": "Single general",
-      "query": "Tell me about Python.",
-      "execution_class": "single_expert",
-      "primary_expert": "technical",
-      "confidence": 0.83,
-      "probabilities": {
-        "execution_class": {
-          "direct": 0.0347,
-          "single_expert": 0.8503,
-          "system2": 0.1151
-        },
-        "primary_expert": {
-          "technical": 0.7826,
-          "analytical": 0.0958,
-          "creative": 0.0431,
-          "general": 0.0785
-        }
-      },
-      "latency_ms": 0.04
-    },
-    {
-      "label": "System-2 complex multi-stage",
-      "query": "Orchestrate an end-to-end data pipeline with multi-agent cross-correlation, scraping, and fault recovery.",
+      "query_index": 1,
+      "preprocessing_latency_ms": 5.72640000609681,
+      "forward_latency_ms": 46.20669997530058,
+      "total_policy_latency_ms": 53.085300023667514,
+      "wall_latency_ms": 53.126800048630685,
       "execution_class": "system2",
       "primary_expert": null,
-      "confidence": 0.8806,
+      "confidence": 0.6393,
       "probabilities": {
         "execution_class": {
-          "direct": 0.0218,
-          "single_expert": 0.0976,
-          "system2": 0.8806
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
         },
         "primary_expert": {
-          "technical": 0.7826,
-          "analytical": 0.0958,
-          "creative": 0.0431,
-          "general": 0.0785
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
         }
-      },
-      "latency_ms": 0.05
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 8.044200018048286,
+      "forward_latency_ms": 51.22750002192333,
+      "total_policy_latency_ms": 61.88079999992624,
+      "wall_latency_ms": 61.91960000433028,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 8.093599986750633,
+      "forward_latency_ms": 48.228600004222244,
+      "total_policy_latency_ms": 57.24280001595616,
+      "wall_latency_ms": 57.276499981526285,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 8.680299972184002,
+      "forward_latency_ms": 64.70819999231026,
+      "total_policy_latency_ms": 74.12309997016564,
+      "wall_latency_ms": 74.14310000604019,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 6.521800009068102,
+      "forward_latency_ms": 58.6399000021629,
+      "total_policy_latency_ms": 68.45129997236654,
+      "wall_latency_ms": 68.4946000110358,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 7.971499988343567,
+      "forward_latency_ms": 61.3710000179708,
+      "total_policy_latency_ms": 70.55260002380237,
+      "wall_latency_ms": 70.59090002439916,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 11.407599959056824,
+      "forward_latency_ms": 58.420400018803775,
+      "total_policy_latency_ms": 71.53959997231141,
+      "wall_latency_ms": 71.56130002113059,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 7.163100002799183,
+      "forward_latency_ms": 68.0417999974452,
+      "total_policy_latency_ms": 76.52729999972507,
+      "wall_latency_ms": 76.57039997866377,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 11.841600004117936,
+      "forward_latency_ms": 106.4769999939017,
+      "total_policy_latency_ms": 120.23599998792633,
+      "wall_latency_ms": 120.26920000789687,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 9.978400019463152,
+      "forward_latency_ms": 81.82449999731034,
+      "total_policy_latency_ms": 93.15880003850907,
+      "wall_latency_ms": 93.20179995847866,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 10.486599989235401,
+      "forward_latency_ms": 71.40119996620342,
+      "total_policy_latency_ms": 82.6915999641642,
+      "wall_latency_ms": 82.71699998294935,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 9.262399980798364,
+      "forward_latency_ms": 56.30650004604831,
+      "total_policy_latency_ms": 67.01960001373664,
+      "wall_latency_ms": 67.06630002008751,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 12.475299998186529,
+      "forward_latency_ms": 73.29390000086278,
+      "total_policy_latency_ms": 86.51679998729378,
+      "wall_latency_ms": 86.53819997562096,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 11.240000021643937,
+      "forward_latency_ms": 76.7655999516137,
+      "total_policy_latency_ms": 88.90319999773055,
+      "wall_latency_ms": 88.92890001880005,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 6.1583000351674855,
+      "forward_latency_ms": 54.57179999211803,
+      "total_policy_latency_ms": 62.114000029396266,
+      "wall_latency_ms": 62.15730000985786,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 11.411499988753349,
+      "forward_latency_ms": 61.45350000588223,
+      "total_policy_latency_ms": 74.32309997966513,
+      "wall_latency_ms": 74.36800003051758,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 9.657699964009225,
+      "forward_latency_ms": 53.071900038048625,
+      "total_policy_latency_ms": 63.91589995473623,
+      "wall_latency_ms": 63.95939999492839,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 9.231299976818264,
+      "forward_latency_ms": 64.62959997588769,
+      "total_policy_latency_ms": 74.72899998538196,
+      "wall_latency_ms": 74.75450000492856,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 7.887900050263852,
+      "forward_latency_ms": 53.42959996778518,
+      "total_policy_latency_ms": 62.21270002424717,
+      "wall_latency_ms": 62.23599996883422,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 5.49670000327751,
+      "forward_latency_ms": 79.57409997470677,
+      "total_policy_latency_ms": 85.881499981042,
+      "wall_latency_ms": 85.90489998459816,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 9.428600023966283,
+      "forward_latency_ms": 71.40889996662736,
+      "total_policy_latency_ms": 82.43569999467582,
+      "wall_latency_ms": 82.47880003182217,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 10.848900012206286,
+      "forward_latency_ms": 57.4303999892436,
+      "total_policy_latency_ms": 69.02809999883175,
+      "wall_latency_ms": 69.05089999781922,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 9.428600023966283,
+      "forward_latency_ms": 64.21699997736141,
+      "total_policy_latency_ms": 75.14440000522882,
+      "wall_latency_ms": 75.18579997122288,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 8.671299961861223,
+      "forward_latency_ms": 85.1801999961026,
+      "total_policy_latency_ms": 94.60229997057468,
+      "wall_latency_ms": 94.62320001330227,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 10.473999951500446,
+      "forward_latency_ms": 62.47220002114773,
+      "total_policy_latency_ms": 74.06249997438863,
+      "wall_latency_ms": 74.09919996280223,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 11.27339998492971,
+      "forward_latency_ms": 77.49300001887605,
+      "total_policy_latency_ms": 89.96979997027665,
+      "wall_latency_ms": 90.0089000351727,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 7.729400007519871,
+      "forward_latency_ms": 85.36090003326535,
+      "total_policy_latency_ms": 95.47270002076402,
+      "wall_latency_ms": 95.5164999468252,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 12.224100006278604,
+      "forward_latency_ms": 82.16759999049827,
+      "total_policy_latency_ms": 95.66529997391626,
+      "wall_latency_ms": 95.70790000725538,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 11.276700010057539,
+      "forward_latency_ms": 61.983800027519464,
+      "total_policy_latency_ms": 74.00810002582148,
+      "wall_latency_ms": 74.03139997040853,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 8.755400020163506,
+      "forward_latency_ms": 66.42049999209121,
+      "total_policy_latency_ms": 75.83640003576875,
+      "wall_latency_ms": 75.86390001233667,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 10.739499994087964,
+      "forward_latency_ms": 58.93050000304356,
+      "total_policy_latency_ms": 70.39449998410419,
+      "wall_latency_ms": 70.41470002150163,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 6.189299980178475,
+      "forward_latency_ms": 51.86350003350526,
+      "total_policy_latency_ms": 59.26609999733046,
+      "wall_latency_ms": 59.30590000934899,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 11.413000000175089,
+      "forward_latency_ms": 65.48799999291077,
+      "total_policy_latency_ms": 77.63820001855493,
+      "wall_latency_ms": 77.66049995552748,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 7.217600010335445,
+      "forward_latency_ms": 64.43100003525615,
+      "total_policy_latency_ms": 72.98270001774654,
+      "wall_latency_ms": 73.01799999549985,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 10.428000008687377,
+      "forward_latency_ms": 68.76709999050945,
+      "total_policy_latency_ms": 80.59640001738444,
+      "wall_latency_ms": 80.63959999708459,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 6.842900009360164,
+      "forward_latency_ms": 60.73289999039844,
+      "total_policy_latency_ms": 68.71580000733957,
+      "wall_latency_ms": 68.82020004559308,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 11.121599993202835,
+      "forward_latency_ms": 72.89250002941117,
+      "total_policy_latency_ms": 85.87389998137951,
+      "wall_latency_ms": 85.92280000448227,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 9.906799998134375,
+      "forward_latency_ms": 55.47429999569431,
+      "total_policy_latency_ms": 66.47100002737716,
+      "wall_latency_ms": 66.49270001798868,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 9.018299984745681,
+      "forward_latency_ms": 65.39130001328886,
+      "total_policy_latency_ms": 76.10649999696761,
+      "wall_latency_ms": 76.15600002463907,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 9.72809997620061,
+      "forward_latency_ms": 49.235699989367276,
+      "total_policy_latency_ms": 62.13819998083636,
+      "wall_latency_ms": 62.1594000258483,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 6.526900047902018,
+      "forward_latency_ms": 48.117399972397834,
+      "total_policy_latency_ms": 55.82649999996647,
+      "wall_latency_ms": 55.84960000123829,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 8.986500033643097,
+      "forward_latency_ms": 72.17170001240447,
+      "total_policy_latency_ms": 82.03140000114217,
+      "wall_latency_ms": 82.05499994801357,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 6.7906000185757875,
+      "forward_latency_ms": 63.44260001787916,
+      "total_policy_latency_ms": 71.6901000123471,
+      "wall_latency_ms": 71.72380003612489,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 10.57269994635135,
+      "forward_latency_ms": 72.52800004789606,
+      "total_policy_latency_ms": 84.47459997842088,
+      "wall_latency_ms": 84.5158000010997,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 11.301600025035441,
+      "forward_latency_ms": 75.97559998976067,
+      "total_policy_latency_ms": 88.01230002427474,
+      "wall_latency_ms": 88.0327999475412,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 10.005000047385693,
+      "forward_latency_ms": 68.83959996048361,
+      "total_policy_latency_ms": 79.6400000108406,
+      "wall_latency_ms": 79.66029999079183,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 9.331899986136705,
+      "forward_latency_ms": 54.239300021436065,
+      "total_policy_latency_ms": 64.87489998107776,
+      "wall_latency_ms": 64.91680000908673,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 10.245000012218952,
+      "forward_latency_ms": 69.42369998432696,
+      "total_policy_latency_ms": 80.91660001082346,
+      "wall_latency_ms": 80.95150004373863,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 10.040999972261488,
+      "forward_latency_ms": 80.08210000116378,
+      "total_policy_latency_ms": 90.96619999036193,
+      "wall_latency_ms": 90.99019999848679,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 8.074899960774928,
+      "forward_latency_ms": 68.53710004361346,
+      "total_policy_latency_ms": 77.72569998633116,
+      "wall_latency_ms": 77.74809998227283,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 9.094500041101128,
+      "forward_latency_ms": 64.6788000012748,
+      "total_policy_latency_ms": 74.98850004049018,
+      "wall_latency_ms": 75.02640003804117,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 10.206100007053465,
+      "forward_latency_ms": 60.159999993629754,
+      "total_policy_latency_ms": 71.95260003209114,
+      "wall_latency_ms": 71.99689996195957,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 13.093400048092008,
+      "forward_latency_ms": 93.17109995754436,
+      "total_policy_latency_ms": 107.62870003236458,
+      "wall_latency_ms": 107.67040000064299,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 8.749999979045242,
+      "forward_latency_ms": 91.3863000459969,
+      "total_policy_latency_ms": 101.5814000274986,
+      "wall_latency_ms": 101.62420000415295,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 11.416699970141053,
+      "forward_latency_ms": 75.1894999993965,
+      "total_policy_latency_ms": 88.03109999280423,
+      "wall_latency_ms": 88.07529998011887,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 12.131700001191348,
+      "forward_latency_ms": 46.4837999898009,
+      "total_policy_latency_ms": 59.45369997061789,
+      "wall_latency_ms": 59.47600002400577,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 8.60530004138127,
+      "forward_latency_ms": 50.71400001179427,
+      "total_policy_latency_ms": 60.370400024112314,
+      "wall_latency_ms": 60.410299978684634,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 13.557099970057607,
+      "forward_latency_ms": 88.4508999879472,
+      "total_policy_latency_ms": 103.43509999802336,
+      "wall_latency_ms": 103.47580001689494,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 11.8335000006482,
+      "forward_latency_ms": 86.5326999919489,
+      "total_policy_latency_ms": 99.71300000324845,
+      "wall_latency_ms": 99.75529997609556,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 11.61139999749139,
+      "forward_latency_ms": 56.795200041960925,
+      "total_policy_latency_ms": 69.47809999110177,
+      "wall_latency_ms": 69.52279998222366,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 8.53110000025481,
+      "forward_latency_ms": 61.66340003255755,
+      "total_policy_latency_ms": 71.67450000997633,
+      "wall_latency_ms": 71.71720004407689,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 10.159600002225488,
+      "forward_latency_ms": 68.95069999154657,
+      "total_policy_latency_ms": 80.43090003775433,
+      "wall_latency_ms": 80.47379995696247,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 8.516799949575216,
+      "forward_latency_ms": 69.7057000361383,
+      "total_policy_latency_ms": 79.40069999312982,
+      "wall_latency_ms": 79.44090000819415,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 8.363000000827014,
+      "forward_latency_ms": 52.7511999825947,
+      "total_policy_latency_ms": 61.8541999720037,
+      "wall_latency_ms": 61.87520001549274,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 7.950500003062189,
+      "forward_latency_ms": 50.52720004459843,
+      "total_policy_latency_ms": 59.199800016358495,
+      "wall_latency_ms": 59.21999999554828,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 10.98589994944632,
+      "forward_latency_ms": 74.1538000293076,
+      "total_policy_latency_ms": 86.42249996773899,
+      "wall_latency_ms": 86.46299998508766,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 11.718499998096377,
+      "forward_latency_ms": 82.19230000395328,
+      "total_policy_latency_ms": 95.64840001985431,
+      "wall_latency_ms": 95.69919999921694,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 13.71659996220842,
+      "forward_latency_ms": 60.3279999922961,
+      "total_policy_latency_ms": 74.76749998750165,
+      "wall_latency_ms": 74.78809996973723,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 6.524800031911582,
+      "forward_latency_ms": 51.075899973511696,
+      "total_policy_latency_ms": 58.38230001972988,
+      "wall_latency_ms": 58.40189999435097,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 7.442399975843728,
+      "forward_latency_ms": 73.76310002291575,
+      "total_policy_latency_ms": 82.93929998762906,
+      "wall_latency_ms": 82.98529998864979,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 12.585600023157895,
+      "forward_latency_ms": 56.66229996131733,
+      "total_policy_latency_ms": 70.07570000132546,
+      "wall_latency_ms": 70.09679998736829,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 5.92189998133108,
+      "forward_latency_ms": 50.981500011403114,
+      "total_policy_latency_ms": 58.6524999816902,
+      "wall_latency_ms": 58.69520001579076,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 9.588600019924343,
+      "forward_latency_ms": 70.85999997798353,
+      "total_policy_latency_ms": 81.68649999424815,
+      "wall_latency_ms": 81.7244999925606,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 10.548699996434152,
+      "forward_latency_ms": 75.28270001057535,
+      "total_policy_latency_ms": 86.74659999087453,
+      "wall_latency_ms": 86.77329996135086,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 8.06129997363314,
+      "forward_latency_ms": 63.72560001909733,
+      "total_policy_latency_ms": 73.07429995853454,
+      "wall_latency_ms": 73.10320000397041,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 7.028000021819025,
+      "forward_latency_ms": 42.34330001054332,
+      "total_policy_latency_ms": 50.79990002559498,
+      "wall_latency_ms": 50.84389995317906,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 8.629799995105714,
+      "forward_latency_ms": 57.89340002229437,
+      "total_policy_latency_ms": 67.74580001365393,
+      "wall_latency_ms": 67.78410001425073,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 11.821199965197593,
+      "forward_latency_ms": 53.66980005055666,
+      "total_policy_latency_ms": 66.69160001911223,
+      "wall_latency_ms": 66.71179999830201,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 9.97419998748228,
+      "forward_latency_ms": 48.2526000123471,
+      "total_policy_latency_ms": 59.01530000846833,
+      "wall_latency_ms": 59.03480004053563,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 5.446099967230111,
+      "forward_latency_ms": 58.92879999009892,
+      "total_policy_latency_ms": 65.32599998172373,
+      "wall_latency_ms": 65.34629996167496,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 5.656299996189773,
+      "forward_latency_ms": 49.7183000552468,
+      "total_policy_latency_ms": 56.38570000883192,
+      "wall_latency_ms": 56.42479995731264,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 7.051500026136637,
+      "forward_latency_ms": 82.91339996503666,
+      "total_policy_latency_ms": 90.99240001523867,
+      "wall_latency_ms": 91.02230001008138,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 9.313000016845763,
+      "forward_latency_ms": 68.54260002728552,
+      "total_policy_latency_ms": 79.72910004900768,
+      "wall_latency_ms": 79.77219996973872,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 10.250099992845207,
+      "forward_latency_ms": 58.96769999526441,
+      "total_policy_latency_ms": 70.02879999345168,
+      "wall_latency_ms": 70.050899987109,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 6.909799994900823,
+      "forward_latency_ms": 75.45440003741533,
+      "total_policy_latency_ms": 83.42229999834672,
+      "wall_latency_ms": 83.44660000875592,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 7.41540000308305,
+      "forward_latency_ms": 53.182900010142475,
+      "total_policy_latency_ms": 61.64809997426346,
+      "wall_latency_ms": 61.668100010138005,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 7.7865999774076045,
+      "forward_latency_ms": 79.61820001946762,
+      "total_policy_latency_ms": 88.28649995848536,
+      "wall_latency_ms": 88.31510000163689,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 6.06420001713559,
+      "forward_latency_ms": 67.14300002204254,
+      "total_policy_latency_ms": 74.10130003700033,
+      "wall_latency_ms": 74.12820000899956,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 6.029199983458966,
+      "forward_latency_ms": 66.96350005222484,
+      "total_policy_latency_ms": 73.75370000954717,
+      "wall_latency_ms": 73.77650000853464,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 5.08189998799935,
+      "forward_latency_ms": 56.09050003113225,
+      "total_policy_latency_ms": 62.60810000821948,
+      "wall_latency_ms": 62.65229999553412,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 8.290100027807057,
+      "forward_latency_ms": 53.52860002312809,
+      "total_policy_latency_ms": 62.568800000008196,
+      "wall_latency_ms": 62.59759998647496,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 9.802600019611418,
+      "forward_latency_ms": 91.65899996878579,
+      "total_policy_latency_ms": 103.03800000110641,
+      "wall_latency_ms": 103.07970002759248,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 11.359299998730421,
+      "forward_latency_ms": 81.01309998892248,
+      "total_policy_latency_ms": 93.73019996564835,
+      "wall_latency_ms": 93.77540001878515,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 11.587799992412329,
+      "forward_latency_ms": 75.72439999785274,
+      "total_policy_latency_ms": 88.92179996473715,
+      "wall_latency_ms": 88.9603000250645,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
+    },
+    {
+      "query_index": 0,
+      "preprocessing_latency_ms": 9.48080001398921,
+      "forward_latency_ms": 74.5949000120163,
+      "total_policy_latency_ms": 84.79779999470338,
+      "wall_latency_ms": 84.81749997008592,
+      "execution_class": "direct",
+      "primary_expert": null,
+      "confidence": 0.581,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.581,
+          "single_expert": 0.2548,
+          "system2": 0.1642
+        },
+        "primary_expert": {
+          "technical": 0.2274,
+          "analytical": 0.1799,
+          "creative": 0.2999,
+          "general": 0.2927
+        }
+      }
+    },
+    {
+      "query_index": 1,
+      "preprocessing_latency_ms": 4.877700004726648,
+      "forward_latency_ms": 50.85589998634532,
+      "total_policy_latency_ms": 57.321000029332936,
+      "wall_latency_ms": 57.36470001284033,
+      "execution_class": "system2",
+      "primary_expert": null,
+      "confidence": 0.6393,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.1207,
+          "single_expert": 0.24,
+          "system2": 0.6393
+        },
+        "primary_expert": {
+          "technical": 0.6247,
+          "analytical": 0.1339,
+          "creative": 0.0735,
+          "general": 0.1679
+        }
+      }
+    },
+    {
+      "query_index": 2,
+      "preprocessing_latency_ms": 5.989200028125197,
+      "forward_latency_ms": 67.4462000024505,
+      "total_policy_latency_ms": 74.6507000294514,
+      "wall_latency_ms": 74.67869995161891,
+      "execution_class": "single_expert",
+      "primary_expert": "creative",
+      "confidence": 0.4643,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2551,
+          "single_expert": 0.4643,
+          "system2": 0.2805
+        },
+        "primary_expert": {
+          "technical": 0.0347,
+          "analytical": 0.0226,
+          "creative": 0.9175,
+          "general": 0.0252
+        }
+      }
+    },
+    {
+      "query_index": 3,
+      "preprocessing_latency_ms": 9.58320003701374,
+      "forward_latency_ms": 83.55079998727888,
+      "total_policy_latency_ms": 94.91059998981655,
+      "wall_latency_ms": 95.1033000019379,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3946,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.297,
+          "single_expert": 0.3946,
+          "system2": 0.3084
+        },
+        "primary_expert": {
+          "technical": 0.4201,
+          "analytical": 0.3685,
+          "creative": 0.0912,
+          "general": 0.1202
+        }
+      }
+    },
+    {
+      "query_index": 4,
+      "preprocessing_latency_ms": 10.007700009737164,
+      "forward_latency_ms": 72.8073000209406,
+      "total_policy_latency_ms": 83.74020003248006,
+      "wall_latency_ms": 83.76139996107668,
+      "execution_class": "single_expert",
+      "primary_expert": "technical",
+      "confidence": 0.3688,
+      "probabilities": {
+        "execution_class": {
+          "direct": 0.2861,
+          "single_expert": 0.3688,
+          "system2": 0.3451
+        },
+        "primary_expert": {
+          "technical": 0.6456,
+          "analytical": 0.1534,
+          "creative": 0.0777,
+          "general": 0.1233
+        }
+      }
     }
   ]
 }

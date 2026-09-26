@@ -13,11 +13,19 @@ class TestAdaptiveGraph:
     """Verify adaptive routing: deterministic fast path vs System-2 fallback."""
 
     @pytest.fixture
-    def mock_builder(self, tmp_path):
+    def mock_builder(self, tmp_path, monkeypatch):
         trace_file = str(tmp_path / "test_traces.jsonl")
         config = MoEConfig(groq_api_key=SecretStr("mock_key"))
         with patch("src.graph.builder.LLMFactory.create_provider"):
             builder = MoEGraphBuilder(config=config, trace_file=trace_file)
+
+        def mock_laya_predict(_query):
+            return {"execution_class": "single_expert", "primary_expert": "technical",
+                    "confidence": 0.9, "probabilities": {"execution_class": {
+                        "direct": 0.05, "single_expert": 0.9, "system2": 0.05}},
+                    "backend": "mock_laya_predict"}
+
+        monkeypatch.setattr(builder.policy_engine, "predict_laya", mock_laya_predict)
 
         # Mock the query_agent inside plan_executor
         async def mock_agent_call(expert: str, prompt: str, **kwargs):
@@ -132,6 +140,8 @@ class TestAdaptiveGraph:
         assert trace["execution_path"] == "single_expert"
         assert trace["system2_invoked"] is False
         assert trace["success"] is True
+        assert trace["execution_success"] is True
+        assert trace["task_success"] is None
         assert "latency_seconds" in trace
 
         # Verify persisted traces in trace store

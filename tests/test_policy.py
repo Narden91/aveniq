@@ -156,10 +156,18 @@ class TestRulePolicy:
 
 
 class TestLayaPolicy:
-    """Test LayaPolicy placeholder and shadow mode behavior."""
+    """Test LayaPolicy mode behavior with explicit mock predictions."""
 
-    def test_shadow_mode_execution(self):
+    @staticmethod
+    def mock_laya_prediction(_query):
+        return {"execution_class": "single_expert", "primary_expert": "technical",
+                "confidence": 0.9, "probabilities": {"execution_class": {
+                    "direct": 0.05, "single_expert": 0.9, "system2": 0.05}},
+                "backend": "mock_laya_prediction"}
+
+    def test_shadow_mode_execution(self, monkeypatch):
         policy = LayaPolicy(shadow_mode=True)
+        monkeypatch.setattr(policy, "predict_laya", self.mock_laya_prediction)
         decision = policy.evaluate("Write a Python script to parse JSON")
         # In shadow mode, execution path is governed by fallback policy (RulePolicy)
         assert decision.execution_class == "single_expert"
@@ -171,8 +179,9 @@ class TestLayaPolicy:
         assert "probabilities" in laya_info
         assert "backend" in laya_info
 
-    def test_active_mode_execution(self):
+    def test_active_mode_execution(self, monkeypatch):
         policy = LayaPolicy(shadow_mode=False)
+        monkeypatch.setattr(policy, "predict_laya", self.mock_laya_prediction)
         decision = policy.evaluate("Write a simple function")
         assert decision.execution_class == "single_expert"
         assert "laya" in decision.raw_predictions

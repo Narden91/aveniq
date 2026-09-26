@@ -274,6 +274,8 @@ class MoEGraphBuilder:
             total_tokens=int(token_usage.get("total_tokens", 0) or 0),
             estimated_cost_usd=float(token_usage.get("estimated_cost_usd", 0.0) or 0.0),
             success=not bool(state.get("code_execution_error")),
+            execution_success=not bool(state.get("code_execution_error")),
+            task_success=None,
             verification_score=verification_score,
             error=state.get("code_execution_error") or None,
             query=state.get("query", ""),

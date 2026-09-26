@@ -42,7 +42,9 @@ all-providers = [
     "langchain-openai>=0.2.0",
     "langchain-anthropic>=0.2.0",
 ]
-laya = []
+laya = [
+    "laya==0.3.20",
+]
 
 [build-system]
 requires = ["hatchling"]

@@ -1,0 +1,112 @@
+{
+  "timestamp_utc": "2026-09-26T11:36:23.829141+00:00",
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "provider_kind": "real",
+  "same_configured_provider_model_across_variants": true,
+  "pricing_source": "https://console.groq.com/docs/model/openai/gpt-oss-120b",
+  "pricing_usd_per_million": {
+    "input": 0.15,
+    "output": 0.6
+  },
+  "cost_note": "List-price estimate from reported tokens; cached input discounts and billed amounts are not exposed by the tracker.",
+  "threshold": {
+    "threshold": 0.4958,
+    "objective": 25,
+    "class_errors": 25,
+    "false_bypass_penalty": 4,
+    "selection_split": "validation"
+  },
+  "task_check_revision": 2,
+  "subset_ids": [
+    "route_008",
+    "route_012",
+    "route_013",
+    "route_018",
+    "route_026",
+    "route_027",
+    "route_030",
+    "route_031",
+    "route_034",
+    "route_039",
+    "route_043",
+    "route_060",
+    "route_061",
+    "route_063",
+    "route_064",
+    "route_065",
+    "route_070",
+    "route_071",
+    "route_074",
+    "route_078",
+    "route_079",
+    "route_084",
+    "route_086",
+    "route_088",
+    "route_097",
+    "route_098",
+    "route_127",
+    "route_128",
+    "route_132",
+    "route_140"
+  ],
+  "request_attempts_recorded": 90,
+  "latest_request_records_used": 90,
+  "superseded_request_attempts": 18,
+  "variants": {
+    "always_system2": {
+      "execution_success": {
+        "count": 21,
+        "total": 30
+      },
+      "task_success": {
+        "count": 21,
+        "total": 30
+      },
+      "provider_input_tokens": 85955,
+      "provider_output_tokens": 37238,
+      "provider_cost_usd_list_price": 0.024558,
+      "end_to_end_latency_ms_mean": 25605.362460003624,
+      "system2_invocation": {
+        "count": 30,
+        "total": 30
+      }
+    },
+    "rule_policy": {
+      "execution_success": {
+        "count": 30,
+        "total": 30
+      },
+      "task_success": {
+        "count": 30,
+        "total": 30
+      },
+      "provider_input_tokens": 2823,
+      "provider_output_tokens": 21233,
+      "provider_cost_usd_list_price": 0.013164,
+      "end_to_end_latency_ms_mean": 6228.539566670467,
+      "system2_invocation": {
+        "count": 0,
+        "total": 30
+      }
+    },
+    "laya_control": {
+      "execution_success": {
+        "count": 12,
+        "total": 30
+      },
+      "task_success": {
+        "count": 11,
+        "total": 30
+      },
+      "provider_input_tokens": 13499,
+      "provider_output_tokens": 8205,
+      "provider_cost_usd_list_price": 0.006949,
+      "end_to_end_latency_ms_mean": 6883.230556664057,
+      "system2_invocation": {
+        "count": 26,
+        "total": 30
+      }
+    }
+  }
+}

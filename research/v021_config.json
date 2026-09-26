@@ -1,0 +1,13 @@
+{
+  "checkpoint": "convaiinnovations/laya",
+  "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+  "corpus_split_seed": "aveniq-v0.2.1",
+  "warmup_iterations": 20,
+  "measured_iterations": 100,
+  "false_bypass_penalty": 4,
+  "task_check_revision": 2,
+  "provider": "groq",
+  "provider_model": "openai/gpt-oss-120b",
+  "pricing_usd_per_million": {"input": 0.15, "output": 0.60},
+  "pricing_source": "https://console.groq.com/docs/model/openai/gpt-oss-120b"
+}

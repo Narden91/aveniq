@@ -63,6 +63,10 @@ artifacts/
 
 # graft's local graph cache — regenerable, not committed (run `graft build`).
 /graft/
+/.hf-cache/
+/.uv-cache/
+/research/downstream_*.sqlite
+/.pytest-v021-temp/
 
 # Aveniq trace logs
 .aveniq_traces.jsonl

@@ -1,0 +1,5581 @@
+{
+  "timestamp_utc": "2026-09-26T11:21:46.781757+00:00",
+  "model": {
+    "laya_version": "0.3.20",
+    "checkpoint": "convaiinnovations/laya",
+    "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+    "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+    "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+    "parameter_count": 421293827,
+    "device": "cuda:0",
+    "parameter_device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "parameter_dtype": "torch.float32",
+    "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+    "cuda_compute_capability": [
+      12,
+      0
+    ],
+    "cuda_allocated_bytes_after_load": 1685436928,
+    "cuda_reserved_bytes_after_load": 1799356416
+  },
+  "config": {
+    "checkpoint": "convaiinnovations/laya",
+    "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+    "corpus_split_seed": "aveniq-v0.2.1",
+    "warmup_iterations": 20,
+    "measured_iterations": 100,
+    "false_bypass_penalty": 4,
+    "provider": "groq",
+    "provider_model": "openai/gpt-oss-120b",
+    "pricing_usd_per_million": {
+      "input": 0.15,
+      "output": 0.6
+    },
+    "pricing_source": "https://console.groq.com/docs/model/openai/gpt-oss-120b"
+  },
+  "corpus_counts": {
+    "development": 100,
+    "validation": 50,
+    "test": 50
+  },
+  "threshold_selection": {
+    "threshold": 0.4958,
+    "objective": 25,
+    "class_errors": 25,
+    "false_bypass_penalty": 4,
+    "selection_split": "validation"
+  },
+  "validation_metrics": {
+    "sample_count": 50,
+    "execution_class_accuracy": {
+      "count": 25,
+      "total": 50,
+      "percent": 50.0
+    },
+    "primary_expert_accuracy": {
+      "count": 21,
+      "total": 25,
+      "percent": 84.0
+    },
+    "routed_primary_expert_accuracy": {
+      "count": 6,
+      "total": 25,
+      "percent": 24.0
+    },
+    "false_bypass": {
+      "count": 0,
+      "total": 15,
+      "percent": 0.0
+    },
+    "unnecessary_escalation": {
+      "count": 25,
+      "total": 35,
+      "percent": 71.42857142857143
+    },
+    "confusion_matrix": {
+      "direct": {
+        "direct": 3,
+        "single_expert": 0,
+        "system2": 7
+      },
+      "single_expert": {
+        "direct": 0,
+        "single_expert": 7,
+        "system2": 18
+      },
+      "system2": {
+        "direct": 0,
+        "single_expert": 0,
+        "system2": 15
+      }
+    },
+    "per_class": {
+      "direct": {
+        "precision": {
+          "count": 3,
+          "total": 3,
+          "percent": 100.0
+        },
+        "recall": {
+          "count": 3,
+          "total": 10,
+          "percent": 30.0
+        }
+      },
+      "single_expert": {
+        "precision": {
+          "count": 7,
+          "total": 7,
+          "percent": 100.0
+        },
+        "recall": {
+          "count": 7,
+          "total": 25,
+          "percent": 28.0
+        }
+      },
+      "system2": {
+        "precision": {
+          "count": 15,
+          "total": 40,
+          "percent": 37.5
+        },
+        "recall": {
+          "count": 15,
+          "total": 15,
+          "percent": 100.0
+        }
+      }
+    },
+    "multiclass_brier_score_raw_laya": 0.5156119042,
+    "ece_raw_laya": 0.17302599999999999,
+    "coverage_by_confidence": [
+      {
+        "threshold": 0.0,
+        "coverage": {
+          "count": 50,
+          "total": 50,
+          "percent": 100.0
+        },
+        "raw_class_accuracy": {
+          "count": 33,
+          "total": 50,
+          "percent": 66.0
+        }
+      },
+      {
+        "threshold": 0.05,
+        "coverage": {
+          "count": 50,
+          "total": 50,
+          "percent": 100.0
+        },
+        "raw_class_accuracy": {
+          "count": 33,
+          "total": 50,
+          "percent": 66.0
+        }
+      },
+      {
+        "threshold": 0.1,
+        "coverage": {
+          "count": 50,
+          "total": 50,
+          "percent": 100.0
+        },
+        "raw_class_accuracy": {
+          "count": 33,
+          "total": 50,
+          "percent": 66.0
+        }
+      },
+      {
+        "threshold": 0.15,
+        "coverage": {
+          "count": 50,
+          "total": 50,
+          "percent": 100.0
+        },
+        "raw_class_accuracy": {
+          "count": 33,
+          "total": 50,
+          "percent": 66.0
+        }
+      },
+      {
+        "threshold": 0.2,
+        "coverage": {
+          "count": 50,
+          "total": 50,
+          "percent": 100.0
+        },
+        "raw_class_accuracy": {
+          "count": 33,
+          "total": 50,
+          "percent": 66.0
+        }
+      },
+      {
+        "threshold": 0.25,
+        "coverage": {
+          "count": 50,
+          "total": 50,
+          "percent": 100.0
+        },
+        "raw_class_accuracy": {
+          "count": 33,
+          "total": 50,
+          "percent": 66.0
+        }
+      },
+      {
+        "threshold": 0.3,
+        "coverage": {
+          "count": 47,
+          "total": 50,
+          "percent": 94.0
+        },
+        "raw_class_accuracy": {
+          "count": 32,
+          "total": 47,
+          "percent": 68.08510638297872
+        }
+      },
+      {
+        "threshold": 0.35,
+        "coverage": {
+          "count": 40,
+          "total": 50,
+          "percent": 80.0
+        },
+        "raw_class_accuracy": {
+          "count": 28,
+          "total": 40,
+          "percent": 70.0
+        }
+      },
+      {
+        "threshold": 0.4,
+        "coverage": {
+          "count": 27,
+          "total": 50,
+          "percent": 54.0
+        },
+        "raw_class_accuracy": {
+          "count": 21,
+          "total": 27,
+          "percent": 77.77777777777777
+        }
+      },
+      {
+        "threshold": 0.45,
+        "coverage": {
+          "count": 19,
+          "total": 50,
+          "percent": 38.0
+        },
+        "raw_class_accuracy": {
+          "count": 16,
+          "total": 19,
+          "percent": 84.21052631578948
+        }
+      },
+      {
+        "threshold": 0.5,
+        "coverage": {
+          "count": 9,
+          "total": 50,
+          "percent": 18.0
+        },
+        "raw_class_accuracy": {
+          "count": 9,
+          "total": 9,
+          "percent": 100.0
+        }
+      },
+      {
+        "threshold": 0.55,
+        "coverage": {
+          "count": 3,
+          "total": 50,
+          "percent": 6.0
+        },
+        "raw_class_accuracy": {
+          "count": 3,
+          "total": 3,
+          "percent": 100.0
+        }
+      },
+      {
+        "threshold": 0.6,
+        "coverage": {
+          "count": 2,
+          "total": 50,
+          "percent": 4.0
+        },
+        "raw_class_accuracy": {
+          "count": 2,
+          "total": 2,
+          "percent": 100.0
+        }
+      },
+      {
+        "threshold": 0.65,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 0.7,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 0.75,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 0.8,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 0.85,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 0.9,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 0.95,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 1.0,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      }
+    ],
+    "system2_invocation_rate": {
+      "count": 40,
+      "total": 50,
+      "percent": 80.0
+    }
+  },
+  "held_out_test_metrics": {
+    "sample_count": 50,
+    "execution_class_accuracy": {
+      "count": 19,
+      "total": 50,
+      "percent": 38.0
+    },
+    "primary_expert_accuracy": {
+      "count": 18,
+      "total": 25,
+      "percent": 72.0
+    },
+    "routed_primary_expert_accuracy": {
+      "count": 1,
+      "total": 25,
+      "percent": 4.0
+    },
+    "false_bypass": {
+      "count": 0,
+      "total": 15,
+      "percent": 0.0
+    },
+    "unnecessary_escalation": {
+      "count": 31,
+      "total": 35,
+      "percent": 88.57142857142857
+    },
+    "confusion_matrix": {
+      "direct": {
+        "direct": 3,
+        "single_expert": 0,
+        "system2": 7
+      },
+      "single_expert": {
+        "direct": 0,
+        "single_expert": 1,
+        "system2": 24
+      },
+      "system2": {
+        "direct": 0,
+        "single_expert": 0,
+        "system2": 15
+      }
+    },
+    "per_class": {
+      "direct": {
+        "precision": {
+          "count": 3,
+          "total": 3,
+          "percent": 100.0
+        },
+        "recall": {
+          "count": 3,
+          "total": 10,
+          "percent": 30.0
+        }
+      },
+      "single_expert": {
+        "precision": {
+          "count": 1,
+          "total": 1,
+          "percent": 100.0
+        },
+        "recall": {
+          "count": 1,
+          "total": 25,
+          "percent": 4.0
+        }
+      },
+      "system2": {
+        "precision": {
+          "count": 15,
+          "total": 46,
+          "percent": 32.608695652173914
+        },
+        "recall": {
+          "count": 15,
+          "total": 15,
+          "percent": 100.0
+        }
+      }
+    },
+    "multiclass_brier_score_raw_laya": 0.5287867848000001,
+    "ece_raw_laya": 0.21227599999999996,
+    "coverage_by_confidence": [
+      {
+        "threshold": 0.0,
+        "coverage": {
+          "count": 50,
+          "total": 50,
+          "percent": 100.0
+        },
+        "raw_class_accuracy": {
+          "count": 34,
+          "total": 50,
+          "percent": 68.0
+        }
+      },
+      {
+        "threshold": 0.05,
+        "coverage": {
+          "count": 50,
+          "total": 50,
+          "percent": 100.0
+        },
+        "raw_class_accuracy": {
+          "count": 34,
+          "total": 50,
+          "percent": 68.0
+        }
+      },
+      {
+        "threshold": 0.1,
+        "coverage": {
+          "count": 50,
+          "total": 50,
+          "percent": 100.0
+        },
+        "raw_class_accuracy": {
+          "count": 34,
+          "total": 50,
+          "percent": 68.0
+        }
+      },
+      {
+        "threshold": 0.15,
+        "coverage": {
+          "count": 50,
+          "total": 50,
+          "percent": 100.0
+        },
+        "raw_class_accuracy": {
+          "count": 34,
+          "total": 50,
+          "percent": 68.0
+        }
+      },
+      {
+        "threshold": 0.2,
+        "coverage": {
+          "count": 50,
+          "total": 50,
+          "percent": 100.0
+        },
+        "raw_class_accuracy": {
+          "count": 34,
+          "total": 50,
+          "percent": 68.0
+        }
+      },
+      {
+        "threshold": 0.25,
+        "coverage": {
+          "count": 50,
+          "total": 50,
+          "percent": 100.0
+        },
+        "raw_class_accuracy": {
+          "count": 34,
+          "total": 50,
+          "percent": 68.0
+        }
+      },
+      {
+        "threshold": 0.3,
+        "coverage": {
+          "count": 48,
+          "total": 50,
+          "percent": 96.0
+        },
+        "raw_class_accuracy": {
+          "count": 34,
+          "total": 48,
+          "percent": 70.83333333333333
+        }
+      },
+      {
+        "threshold": 0.35,
+        "coverage": {
+          "count": 39,
+          "total": 50,
+          "percent": 78.0
+        },
+        "raw_class_accuracy": {
+          "count": 31,
+          "total": 39,
+          "percent": 79.48717948717949
+        }
+      },
+      {
+        "threshold": 0.4,
+        "coverage": {
+          "count": 24,
+          "total": 50,
+          "percent": 48.0
+        },
+        "raw_class_accuracy": {
+          "count": 21,
+          "total": 24,
+          "percent": 87.5
+        }
+      },
+      {
+        "threshold": 0.45,
+        "coverage": {
+          "count": 11,
+          "total": 50,
+          "percent": 22.0
+        },
+        "raw_class_accuracy": {
+          "count": 11,
+          "total": 11,
+          "percent": 100.0
+        }
+      },
+      {
+        "threshold": 0.5,
+        "coverage": {
+          "count": 6,
+          "total": 50,
+          "percent": 12.0
+        },
+        "raw_class_accuracy": {
+          "count": 6,
+          "total": 6,
+          "percent": 100.0
+        }
+      },
+      {
+        "threshold": 0.55,
+        "coverage": {
+          "count": 5,
+          "total": 50,
+          "percent": 10.0
+        },
+        "raw_class_accuracy": {
+          "count": 5,
+          "total": 5,
+          "percent": 100.0
+        }
+      },
+      {
+        "threshold": 0.6,
+        "coverage": {
+          "count": 3,
+          "total": 50,
+          "percent": 6.0
+        },
+        "raw_class_accuracy": {
+          "count": 3,
+          "total": 3,
+          "percent": 100.0
+        }
+      },
+      {
+        "threshold": 0.65,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 0.7,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 0.75,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 0.8,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 0.85,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 0.9,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 0.95,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      },
+      {
+        "threshold": 1.0,
+        "coverage": {
+          "count": 0,
+          "total": 50,
+          "percent": 0.0
+        },
+        "raw_class_accuracy": {
+          "count": 0,
+          "total": 0,
+          "percent": null
+        }
+      }
+    ],
+    "system2_invocation_rate": {
+      "count": 46,
+      "total": 50,
+      "percent": 92.0
+    }
+  },
+  "predictions": [
+    {
+      "id": "route_002",
+      "query": "Hi there.",
+      "split": "validation",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "direct",
+        "primary_expert": null,
+        "confidence": 0.5266,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.5266,
+            "single_expert": 0.2588,
+            "system2": 0.2146
+          },
+          "primary_expert": {
+            "technical": 0.2502,
+            "analytical": 0.1765,
+            "creative": 0.2902,
+            "general": 0.2832
+          }
+        },
+        "preprocessing_latency_ms": 17.484800016973168,
+        "forward_latency_ms": 1240.8502000034787,
+        "total_policy_latency_ms": 1260.1294000050984,
+        "latency_ms": 1240.8502000034787,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_004",
+      "query": "Good evening.",
+      "split": "validation",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "direct",
+        "primary_expert": null,
+        "confidence": 0.6243,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.6243,
+            "single_expert": 0.2328,
+            "system2": 0.1429
+          },
+          "primary_expert": {
+            "technical": 0.2157,
+            "analytical": 0.1811,
+            "creative": 0.2804,
+            "general": 0.3228
+          }
+        },
+        "preprocessing_latency_ms": 11.162900016643107,
+        "forward_latency_ms": 54.80300000635907,
+        "total_policy_latency_ms": 67.67130002845079,
+        "latency_ms": 54.80300000635907,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_005",
+      "query": "Hey!",
+      "split": "validation",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.3382,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3984,
+            "single_expert": 0.402,
+            "system2": 0.1996
+          },
+          "primary_expert": {
+            "technical": 0.2057,
+            "analytical": 0.1672,
+            "creative": 0.3382,
+            "general": 0.2889
+          }
+        },
+        "preprocessing_latency_ms": 11.195699975360185,
+        "forward_latency_ms": 42.96900000190362,
+        "total_policy_latency_ms": 54.97150000883266,
+        "latency_ms": 42.96900000190362,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_008",
+      "query": "Goodbye.",
+      "split": "test",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.2989,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2707,
+            "single_expert": 0.5681,
+            "system2": 0.1612
+          },
+          "primary_expert": {
+            "technical": 0.2234,
+            "analytical": 0.1854,
+            "creative": 0.2922,
+            "general": 0.2989
+          }
+        },
+        "preprocessing_latency_ms": 10.22170000942424,
+        "forward_latency_ms": 80.60980000300333,
+        "total_policy_latency_ms": 91.80120000382885,
+        "latency_ms": 80.60980000300333,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_012",
+      "query": "Are you available?",
+      "split": "test",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "direct",
+        "primary_expert": null,
+        "confidence": 0.5641,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.5641,
+            "single_expert": 0.2617,
+            "system2": 0.1742
+          },
+          "primary_expert": {
+            "technical": 0.2168,
+            "analytical": 0.1923,
+            "creative": 0.288,
+            "general": 0.3028
+          }
+        },
+        "preprocessing_latency_ms": 9.079799987375736,
+        "forward_latency_ms": 63.333500002045184,
+        "total_policy_latency_ms": 73.58269998803735,
+        "latency_ms": 63.333500002045184,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_013",
+      "query": "Can you hear me?",
+      "split": "test",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.2942,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3212,
+            "single_expert": 0.5028,
+            "system2": 0.176
+          },
+          "primary_expert": {
+            "technical": 0.2436,
+            "analytical": 0.1993,
+            "creative": 0.2629,
+            "general": 0.2942
+          }
+        },
+        "preprocessing_latency_ms": 10.20080002490431,
+        "forward_latency_ms": 85.81530000083148,
+        "total_policy_latency_ms": 96.7780000064522,
+        "latency_ms": 85.81530000083148,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_018",
+      "query": "Reply with OK.",
+      "split": "test",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "direct",
+        "primary_expert": null,
+        "confidence": 0.6072,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.6072,
+            "single_expert": 0.251,
+            "system2": 0.1418
+          },
+          "primary_expert": {
+            "technical": 0.2128,
+            "analytical": 0.1854,
+            "creative": 0.2876,
+            "general": 0.3141
+          }
+        },
+        "preprocessing_latency_ms": 10.708499990869313,
+        "forward_latency_ms": 48.233100038487464,
+        "total_policy_latency_ms": 59.851500031072646,
+        "latency_ms": 48.233100038487464,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_022",
+      "query": "Are you an AI assistant?",
+      "split": "validation",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.2706,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2627,
+            "single_expert": 0.5789,
+            "system2": 0.1584
+          },
+          "primary_expert": {
+            "technical": 0.2677,
+            "analytical": 0.1951,
+            "creative": 0.2666,
+            "general": 0.2706
+          }
+        },
+        "preprocessing_latency_ms": 9.845099993981421,
+        "forward_latency_ms": 64.8090000031516,
+        "total_policy_latency_ms": 75.91189997037873,
+        "latency_ms": 64.8090000031516,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_023",
+      "query": "Can you answer questions?",
+      "split": "validation",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.319,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2629,
+            "single_expert": 0.4883,
+            "system2": 0.2487
+          },
+          "primary_expert": {
+            "technical": 0.2035,
+            "analytical": 0.1842,
+            "creative": 0.2932,
+            "general": 0.319
+          }
+        },
+        "preprocessing_latency_ms": 8.223399985581636,
+        "forward_latency_ms": 42.04670002218336,
+        "total_policy_latency_ms": 51.164900010917336,
+        "latency_ms": 42.04670002218336,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_026",
+      "query": "Is this chat working?",
+      "split": "test",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.3086,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3509,
+            "single_expert": 0.4026,
+            "system2": 0.2465
+          },
+          "primary_expert": {
+            "technical": 0.3086,
+            "analytical": 0.2665,
+            "creative": 0.1756,
+            "general": 0.2492
+          }
+        },
+        "preprocessing_latency_ms": 7.600799959618598,
+        "forward_latency_ms": 75.93150000320747,
+        "total_policy_latency_ms": 84.52629996463656,
+        "latency_ms": 75.93150000320747,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_027",
+      "query": "Please acknowledge this message.",
+      "split": "test",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.3203,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2266,
+            "single_expert": 0.5642,
+            "system2": 0.2092
+          },
+          "primary_expert": {
+            "technical": 0.2186,
+            "analytical": 0.1768,
+            "creative": 0.2843,
+            "general": 0.3203
+          }
+        },
+        "preprocessing_latency_ms": 8.84959998074919,
+        "forward_latency_ms": 57.426300016231835,
+        "total_policy_latency_ms": 67.02730001416057,
+        "latency_ms": 57.426300016231835,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_028",
+      "query": "Just checking that you are here.",
+      "split": "validation",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "direct",
+        "primary_expert": null,
+        "confidence": 0.5309,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.5309,
+            "single_expert": 0.3117,
+            "system2": 0.1574
+          },
+          "primary_expert": {
+            "technical": 0.1888,
+            "analytical": 0.1762,
+            "creative": 0.2152,
+            "general": 0.4197
+          }
+        },
+        "preprocessing_latency_ms": 6.353900011163205,
+        "forward_latency_ms": 76.77039998816326,
+        "total_policy_latency_ms": 84.03700002236292,
+        "latency_ms": 76.77039998816326,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_029",
+      "query": "No further help needed, thanks.",
+      "split": "validation",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "direct",
+        "primary_expert": null,
+        "confidence": 0.4845,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.4845,
+            "single_expert": 0.3986,
+            "system2": 0.1169
+          },
+          "primary_expert": {
+            "technical": 0.1869,
+            "analytical": 0.1673,
+            "creative": 0.2894,
+            "general": 0.3564
+          }
+        },
+        "preprocessing_latency_ms": 6.646100024227053,
+        "forward_latency_ms": 46.50130000663921,
+        "total_policy_latency_ms": 54.043700045440346,
+        "latency_ms": 46.50130000663921,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_030",
+      "query": "That answered my question, thank you.",
+      "split": "test",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.3055,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3414,
+            "single_expert": 0.4679,
+            "system2": 0.1908
+          },
+          "primary_expert": {
+            "technical": 0.2029,
+            "analytical": 0.1963,
+            "creative": 0.2953,
+            "general": 0.3055
+          }
+        },
+        "preprocessing_latency_ms": 7.26869999198243,
+        "forward_latency_ms": 48.346899973694235,
+        "total_policy_latency_ms": 56.79780000355095,
+        "latency_ms": 48.346899973694235,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_031",
+      "query": "I appreciate it.",
+      "split": "test",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.3313,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2647,
+            "single_expert": 0.5542,
+            "system2": 0.1812
+          },
+          "primary_expert": {
+            "technical": 0.1812,
+            "analytical": 0.1565,
+            "creative": 0.3313,
+            "general": 0.331
+          }
+        },
+        "preprocessing_latency_ms": 11.628600012045354,
+        "forward_latency_ms": 55.67259999224916,
+        "total_policy_latency_ms": 68.06100002722815,
+        "latency_ms": 55.67259999224916,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_034",
+      "query": "Bonjour, are you there?",
+      "split": "test",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "direct",
+        "primary_expert": null,
+        "confidence": 0.6339,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.6339,
+            "single_expert": 0.2244,
+            "system2": 0.1417
+          },
+          "primary_expert": {
+            "technical": 0.2418,
+            "analytical": 0.1788,
+            "creative": 0.255,
+            "general": 0.3244
+          }
+        },
+        "preprocessing_latency_ms": 5.408499971963465,
+        "forward_latency_ms": 41.06459999457002,
+        "total_policy_latency_ms": 47.434300009626895,
+        "latency_ms": 41.06459999457002,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_036",
+      "query": "Please respond with the word ready.",
+      "split": "validation",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "direct",
+        "primary_expert": null,
+        "confidence": 0.4928,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.4928,
+            "single_expert": 0.2671,
+            "system2": 0.2401
+          },
+          "primary_expert": {
+            "technical": 0.1867,
+            "analytical": 0.1846,
+            "creative": 0.2557,
+            "general": 0.373
+          }
+        },
+        "preprocessing_latency_ms": 5.822999984957278,
+        "forward_latency_ms": 35.28640000149608,
+        "total_policy_latency_ms": 41.85720003442839,
+        "latency_ms": 35.28640000149608,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_037",
+      "query": "Tell me if you are online.",
+      "split": "validation",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.2939,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3498,
+            "single_expert": 0.4309,
+            "system2": 0.2193
+          },
+          "primary_expert": {
+            "technical": 0.2354,
+            "analytical": 0.1856,
+            "creative": 0.2939,
+            "general": 0.2851
+          }
+        },
+        "preprocessing_latency_ms": 7.748399977572262,
+        "forward_latency_ms": 67.65230000019073,
+        "total_policy_latency_ms": 76.51699997950345,
+        "latency_ms": 67.65230000019073,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_039",
+      "query": "I am done for now.",
+      "split": "test",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.3284,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3386,
+            "single_expert": 0.4938,
+            "system2": 0.1676
+          },
+          "primary_expert": {
+            "technical": 0.1978,
+            "analytical": 0.1863,
+            "creative": 0.3284,
+            "general": 0.2875
+          }
+        },
+        "preprocessing_latency_ms": 9.508299990557134,
+        "forward_latency_ms": 57.429299980867654,
+        "total_policy_latency_ms": 67.8120999946259,
+        "latency_ms": 57.429299980867654,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_040",
+      "query": "Thanks, bye.",
+      "split": "validation",
+      "expected_execution_class": "direct",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.3123,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.261,
+            "single_expert": 0.6039,
+            "system2": 0.1352
+          },
+          "primary_expert": {
+            "technical": 0.2129,
+            "analytical": 0.1826,
+            "creative": 0.2922,
+            "general": 0.3123
+          }
+        },
+        "preprocessing_latency_ms": 7.126900018192828,
+        "forward_latency_ms": 49.21800002921373,
+        "total_policy_latency_ms": 57.023300032597035,
+        "latency_ms": 49.21800002921373,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_042",
+      "query": "Write a Python function that reverses a list.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "technical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.5065,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2941,
+            "single_expert": 0.5065,
+            "system2": 0.1994
+          },
+          "primary_expert": {
+            "technical": 0.7278,
+            "analytical": 0.1084,
+            "creative": 0.0861,
+            "general": 0.0777
+          }
+        },
+        "preprocessing_latency_ms": 5.806200031656772,
+        "forward_latency_ms": 43.82829996757209,
+        "total_policy_latency_ms": 50.90909998398274,
+        "latency_ms": 43.82829996757209,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_043",
+      "query": "What does a SQL index speed up?",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "technical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.3854,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2937,
+            "single_expert": 0.3854,
+            "system2": 0.3209
+          },
+          "primary_expert": {
+            "technical": 0.4242,
+            "analytical": 0.4112,
+            "creative": 0.0449,
+            "general": 0.1197
+          }
+        },
+        "preprocessing_latency_ms": 10.358600004110485,
+        "forward_latency_ms": 58.820299978833646,
+        "total_policy_latency_ms": 70.24849997833371,
+        "latency_ms": 58.820299978833646,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_045",
+      "query": "Fix an off-by-one error in a loop that skips the last item.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "technical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.6335,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1735,
+            "single_expert": 0.6335,
+            "system2": 0.193
+          },
+          "primary_expert": {
+            "technical": 0.7653,
+            "analytical": 0.0684,
+            "creative": 0.0925,
+            "general": 0.0738
+          }
+        },
+        "preprocessing_latency_ms": 7.305200037080795,
+        "forward_latency_ms": 71.03919994551688,
+        "total_policy_latency_ms": 79.60779999848455,
+        "latency_ms": 71.03919994551688,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_054",
+      "query": "Explain the purpose of a Dockerfile.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "technical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.3702,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3612,
+            "single_expert": 0.2686,
+            "system2": 0.3702
+          },
+          "primary_expert": {
+            "technical": 0.5806,
+            "analytical": 0.1164,
+            "creative": 0.0831,
+            "general": 0.2199
+          }
+        },
+        "preprocessing_latency_ms": 11.250899988226593,
+        "forward_latency_ms": 49.85850001685321,
+        "total_policy_latency_ms": 61.84400001075119,
+        "latency_ms": 49.85850001685321,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_057",
+      "query": "Explain what an async function returns in Python.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "technical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.3956,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2367,
+            "single_expert": 0.3677,
+            "system2": 0.3956
+          },
+          "primary_expert": {
+            "technical": 0.5112,
+            "analytical": 0.1051,
+            "creative": 0.1187,
+            "general": 0.265
+          }
+        },
+        "preprocessing_latency_ms": 5.357199988793582,
+        "forward_latency_ms": 69.79890004731715,
+        "total_policy_latency_ms": 76.80710003478453,
+        "latency_ms": 69.79890004731715,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_059",
+      "query": "Write a Python function checking whether a string is a palindrome.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "technical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.4257,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2855,
+            "single_expert": 0.4257,
+            "system2": 0.2888
+          },
+          "primary_expert": {
+            "technical": 0.7648,
+            "analytical": 0.0767,
+            "creative": 0.0824,
+            "general": 0.0761
+          }
+        },
+        "preprocessing_latency_ms": 11.582000006455928,
+        "forward_latency_ms": 64.0449000056833,
+        "total_policy_latency_ms": 76.3583000516519,
+        "latency_ms": 64.0449000056833,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_060",
+      "query": "Explain why a mutable default argument can cause bugs.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "technical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.5567,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2471,
+            "single_expert": 0.5567,
+            "system2": 0.1962
+          },
+          "primary_expert": {
+            "technical": 0.6,
+            "analytical": 0.0772,
+            "creative": 0.0981,
+            "general": 0.2247
+          }
+        },
+        "preprocessing_latency_ms": 9.481100016273558,
+        "forward_latency_ms": 54.809799999929965,
+        "total_policy_latency_ms": 66.11790001625195,
+        "latency_ms": 54.809799999929965,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_061",
+      "query": "How do I sort a list of dictionaries by one key?",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "technical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.4926,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1858,
+            "single_expert": 0.4926,
+            "system2": 0.3217
+          },
+          "primary_expert": {
+            "technical": 0.2422,
+            "analytical": 0.0768,
+            "creative": 0.1202,
+            "general": 0.5608
+          }
+        },
+        "preprocessing_latency_ms": 7.379399961791933,
+        "forward_latency_ms": 54.764000000432134,
+        "total_policy_latency_ms": 62.965999997686595,
+        "latency_ms": 54.764000000432134,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_063",
+      "query": "Explain the difference between a stack and a queue.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "technical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.4172,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2366,
+            "single_expert": 0.4172,
+            "system2": 0.3462
+          },
+          "primary_expert": {
+            "technical": 0.246,
+            "analytical": 0.1324,
+            "creative": 0.1757,
+            "general": 0.4459
+          }
+        },
+        "preprocessing_latency_ms": 8.399999991524965,
+        "forward_latency_ms": 55.162300006486475,
+        "total_policy_latency_ms": 64.26020001526922,
+        "latency_ms": 55.162300006486475,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_064",
+      "query": "Write a TypeScript type for an optional email field.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "technical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.405,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3136,
+            "single_expert": 0.405,
+            "system2": 0.2814
+          },
+          "primary_expert": {
+            "technical": 0.423,
+            "analytical": 0.116,
+            "creative": 0.3089,
+            "general": 0.1521
+          }
+        },
+        "preprocessing_latency_ms": 5.404800001997501,
+        "forward_latency_ms": 34.33890000451356,
+        "total_policy_latency_ms": 40.577400010079145,
+        "latency_ms": 34.33890000451356,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_065",
+      "query": "How can I catch a specific exception in Python?",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "technical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.4365,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1404,
+            "single_expert": 0.4365,
+            "system2": 0.4231
+          },
+          "primary_expert": {
+            "technical": 0.7608,
+            "analytical": 0.0606,
+            "creative": 0.0477,
+            "general": 0.1309
+          }
+        },
+        "preprocessing_latency_ms": 10.826300014741719,
+        "forward_latency_ms": 76.1400000192225,
+        "total_policy_latency_ms": 87.69720001146197,
+        "latency_ms": 76.1400000192225,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_068",
+      "query": "Calculate the average of 4, 6, and 8.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.2993,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2408,
+            "single_expert": 0.5515,
+            "system2": 0.2076
+          },
+          "primary_expert": {
+            "technical": 0.1809,
+            "analytical": 0.2792,
+            "creative": 0.2406,
+            "general": 0.2993
+          }
+        },
+        "preprocessing_latency_ms": 5.234400043264031,
+        "forward_latency_ms": 69.38389997230843,
+        "total_policy_latency_ms": 75.8851999999024,
+        "latency_ms": 69.38389997230843,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_070",
+      "query": "What does a 95 percent confidence interval mean?",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.4912,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2879,
+            "single_expert": 0.4912,
+            "system2": 0.2209
+          },
+          "primary_expert": {
+            "technical": 0.1096,
+            "analytical": 0.6355,
+            "creative": 0.0832,
+            "general": 0.1716
+          }
+        },
+        "preprocessing_latency_ms": 10.15639997785911,
+        "forward_latency_ms": 70.31009998172522,
+        "total_policy_latency_ms": 81.34949998930097,
+        "latency_ms": 70.31009998172522,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_071",
+      "query": "Explain precision and recall for a binary classifier.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.3805,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2782,
+            "single_expert": 0.3413,
+            "system2": 0.3805
+          },
+          "primary_expert": {
+            "technical": 0.2867,
+            "analytical": 0.4787,
+            "creative": 0.0755,
+            "general": 0.1591
+          }
+        },
+        "preprocessing_latency_ms": 9.647400001995265,
+        "forward_latency_ms": 47.80549998395145,
+        "total_policy_latency_ms": 58.16349998349324,
+        "latency_ms": 47.80549998395145,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_072",
+      "query": "Compare variance and standard deviation.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.5076,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2295,
+            "single_expert": 0.5076,
+            "system2": 0.2629
+          },
+          "primary_expert": {
+            "technical": 0.1564,
+            "analytical": 0.5431,
+            "creative": 0.1345,
+            "general": 0.166
+          }
+        },
+        "preprocessing_latency_ms": 5.399599962402135,
+        "forward_latency_ms": 57.36960005015135,
+        "total_policy_latency_ms": 63.473899965174496,
+        "latency_ms": 57.36960005015135,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_074",
+      "query": "Explain a confusion matrix with one example.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.3577,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3661,
+            "single_expert": 0.4571,
+            "system2": 0.1768
+          },
+          "primary_expert": {
+            "technical": 0.2042,
+            "analytical": 0.2057,
+            "creative": 0.2324,
+            "general": 0.3577
+          }
+        },
+        "preprocessing_latency_ms": 5.300800024997443,
+        "forward_latency_ms": 86.574999964796,
+        "total_policy_latency_ms": 93.0798000190407,
+        "latency_ms": 86.574999964796,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_075",
+      "query": "How does a histogram differ from a bar chart?",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.3574,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2237,
+            "single_expert": 0.5567,
+            "system2": 0.2197
+          },
+          "primary_expert": {
+            "technical": 0.1956,
+            "analytical": 0.3574,
+            "creative": 0.1458,
+            "general": 0.3012
+          }
+        },
+        "preprocessing_latency_ms": 8.85099999140948,
+        "forward_latency_ms": 75.08570002391934,
+        "total_policy_latency_ms": 85.19449998857453,
+        "latency_ms": 75.08570002391934,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_076",
+      "query": "Compare linear and logistic regression.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.4556,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2022,
+            "single_expert": 0.4556,
+            "system2": 0.3422
+          },
+          "primary_expert": {
+            "technical": 0.179,
+            "analytical": 0.5497,
+            "creative": 0.1102,
+            "general": 0.1611
+          }
+        },
+        "preprocessing_latency_ms": 8.613299985881895,
+        "forward_latency_ms": 71.60349999321625,
+        "total_policy_latency_ms": 81.44089998677373,
+        "latency_ms": 71.60349999321625,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_077",
+      "query": "What does a p-value of 0.03 describe?",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.4826,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1966,
+            "single_expert": 0.4826,
+            "system2": 0.3208
+          },
+          "primary_expert": {
+            "technical": 0.1037,
+            "analytical": 0.6483,
+            "creative": 0.1182,
+            "general": 0.1299
+          }
+        },
+        "preprocessing_latency_ms": 10.385800036601722,
+        "forward_latency_ms": 79.0860999841243,
+        "total_policy_latency_ms": 90.18660004949197,
+        "latency_ms": 79.0860999841243,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_078",
+      "query": "Find the range of 3, 9, 11, and 15.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.3146,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2298,
+            "single_expert": 0.5178,
+            "system2": 0.2523
+          },
+          "primary_expert": {
+            "technical": 0.2001,
+            "analytical": 0.1868,
+            "creative": 0.3146,
+            "general": 0.2985
+          }
+        },
+        "preprocessing_latency_ms": 6.732199981343001,
+        "forward_latency_ms": 57.660400052554905,
+        "total_policy_latency_ms": 65.22590003442019,
+        "latency_ms": 57.660400052554905,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_079",
+      "query": "Explain how missing data can bias an estimate.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.3898,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3102,
+            "single_expert": 0.3898,
+            "system2": 0.3
+          },
+          "primary_expert": {
+            "technical": 0.1626,
+            "analytical": 0.5509,
+            "creative": 0.0869,
+            "general": 0.1996
+          }
+        },
+        "preprocessing_latency_ms": 8.990800008177757,
+        "forward_latency_ms": 73.1546999886632,
+        "total_policy_latency_ms": 83.39749998413026,
+        "latency_ms": 73.1546999886632,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_080",
+      "query": "Compare the geometric and arithmetic mean.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.3046,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2703,
+            "single_expert": 0.5749,
+            "system2": 0.1547
+          },
+          "primary_expert": {
+            "technical": 0.2412,
+            "analytical": 0.3046,
+            "creative": 0.2318,
+            "general": 0.2224
+          }
+        },
+        "preprocessing_latency_ms": 10.149099980480969,
+        "forward_latency_ms": 51.19339999509975,
+        "total_policy_latency_ms": 62.287600012496114,
+        "latency_ms": 51.19339999509975,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_081",
+      "query": "What is a control group in an experiment?",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.3764,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1827,
+            "single_expert": 0.4729,
+            "system2": 0.3443
+          },
+          "primary_expert": {
+            "technical": 0.1712,
+            "analytical": 0.3764,
+            "creative": 0.128,
+            "general": 0.3244
+          }
+        },
+        "preprocessing_latency_ms": 10.893600003328174,
+        "forward_latency_ms": 46.216399990953505,
+        "total_policy_latency_ms": 57.86689999513328,
+        "latency_ms": 46.216399990953505,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_083",
+      "query": "Calculate 20 percent of 75.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.3225,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2741,
+            "single_expert": 0.524,
+            "system2": 0.2019
+          },
+          "primary_expert": {
+            "technical": 0.2001,
+            "analytical": 0.1815,
+            "creative": 0.2958,
+            "general": 0.3225
+          }
+        },
+        "preprocessing_latency_ms": 4.734000016469508,
+        "forward_latency_ms": 35.5060999863781,
+        "total_policy_latency_ms": 41.136200015898794,
+        "latency_ms": 35.5060999863781,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_084",
+      "query": "Compare absolute and relative risk reduction.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.442,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2795,
+            "single_expert": 0.442,
+            "system2": 0.2786
+          },
+          "primary_expert": {
+            "technical": 0.2446,
+            "analytical": 0.45,
+            "creative": 0.1407,
+            "general": 0.1647
+          }
+        },
+        "preprocessing_latency_ms": 4.4929999858140945,
+        "forward_latency_ms": 36.99990001041442,
+        "total_policy_latency_ms": 42.693099996540695,
+        "latency_ms": 36.99990001041442,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_086",
+      "query": "Explain the difference between a rate and a count.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.3995,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3102,
+            "single_expert": 0.3995,
+            "system2": 0.2902
+          },
+          "primary_expert": {
+            "technical": 0.2243,
+            "analytical": 0.1941,
+            "creative": 0.1818,
+            "general": 0.3997
+          }
+        },
+        "preprocessing_latency_ms": 8.072800002992153,
+        "forward_latency_ms": 71.0063999867998,
+        "total_policy_latency_ms": 80.7009999989532,
+        "latency_ms": 71.0063999867998,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_088",
+      "query": "Compare a randomized trial with an observational study.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "analytical",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.4482,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3101,
+            "single_expert": 0.4483,
+            "system2": 0.2416
+          },
+          "primary_expert": {
+            "technical": 0.1777,
+            "analytical": 0.4482,
+            "creative": 0.1629,
+            "general": 0.2112
+          }
+        },
+        "preprocessing_latency_ms": 8.170299988705665,
+        "forward_latency_ms": 80.36870002979413,
+        "total_policy_latency_ms": 89.52899998985231,
+        "latency_ms": 80.36870002979413,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_097",
+      "query": "Write a haiku about spring.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "creative",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.4722,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2854,
+            "single_expert": 0.4722,
+            "system2": 0.2424
+          },
+          "primary_expert": {
+            "technical": 0.0281,
+            "analytical": 0.0151,
+            "creative": 0.9377,
+            "general": 0.019
+          }
+        },
+        "preprocessing_latency_ms": 7.121099974028766,
+        "forward_latency_ms": 87.21530000912026,
+        "total_policy_latency_ms": 95.62979999464005,
+        "latency_ms": 87.21530000912026,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_098",
+      "query": "Create a playful tagline for a tea brand.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "creative",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.4346,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2709,
+            "single_expert": 0.4346,
+            "system2": 0.2944
+          },
+          "primary_expert": {
+            "technical": 0.083,
+            "analytical": 0.0582,
+            "creative": 0.757,
+            "general": 0.1018
+          }
+        },
+        "preprocessing_latency_ms": 11.426399985793978,
+        "forward_latency_ms": 38.38949999772012,
+        "total_policy_latency_ms": 50.565099983941764,
+        "latency_ms": 38.38949999772012,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_101",
+      "query": "Draft an invitation to a neighborhood picnic.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "creative",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.3488,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3472,
+            "single_expert": 0.3488,
+            "system2": 0.304
+          },
+          "primary_expert": {
+            "technical": 0.1757,
+            "analytical": 0.1248,
+            "creative": 0.5075,
+            "general": 0.192
+          }
+        },
+        "preprocessing_latency_ms": 4.487199999857694,
+        "forward_latency_ms": 61.31820002337918,
+        "total_policy_latency_ms": 66.7387000285089,
+        "latency_ms": 61.31820002337918,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_102",
+      "query": "Write a warm thank-you note to a teacher.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "creative",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.3805,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3648,
+            "single_expert": 0.3805,
+            "system2": 0.2546
+          },
+          "primary_expert": {
+            "technical": 0.089,
+            "analytical": 0.0571,
+            "creative": 0.723,
+            "general": 0.1309
+          }
+        },
+        "preprocessing_latency_ms": 5.306800012476742,
+        "forward_latency_ms": 71.95649994537234,
+        "total_policy_latency_ms": 78.53160001104698,
+        "latency_ms": 71.95649994537234,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_103",
+      "query": "Suggest a name for a science podcast.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "creative",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.3887,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2618,
+            "single_expert": 0.6043,
+            "system2": 0.1339
+          },
+          "primary_expert": {
+            "technical": 0.3887,
+            "analytical": 0.177,
+            "creative": 0.2449,
+            "general": 0.1894
+          }
+        },
+        "preprocessing_latency_ms": 10.775899980217218,
+        "forward_latency_ms": 79.44840000709519,
+        "total_policy_latency_ms": 91.50159999262542,
+        "latency_ms": 79.44840000709519,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_107",
+      "query": "Draft a product description for handmade soap.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "creative",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.3865,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2668,
+            "single_expert": 0.3865,
+            "system2": 0.3467
+          },
+          "primary_expert": {
+            "technical": 0.152,
+            "analytical": 0.082,
+            "creative": 0.5197,
+            "general": 0.2463
+          }
+        },
+        "preprocessing_latency_ms": 9.632199944462627,
+        "forward_latency_ms": 81.01440005702898,
+        "total_policy_latency_ms": 92.4407999846153,
+        "latency_ms": 81.01440005702898,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_110",
+      "query": "Create a character sketch of a retired detective.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "creative",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.4958,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3077,
+            "single_expert": 0.4958,
+            "system2": 0.1965
+          },
+          "primary_expert": {
+            "technical": 0.1036,
+            "analytical": 0.0633,
+            "creative": 0.7208,
+            "general": 0.1122
+          }
+        },
+        "preprocessing_latency_ms": 9.683899988885969,
+        "forward_latency_ms": 74.41300002392381,
+        "total_policy_latency_ms": 85.08589997654781,
+        "latency_ms": 74.41300002392381,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_112",
+      "query": "Draft a polite welcome message for new volunteers.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "creative",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "direct",
+        "primary_expert": null,
+        "confidence": 0.4426,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.4426,
+            "single_expert": 0.3391,
+            "system2": 0.2183
+          },
+          "primary_expert": {
+            "technical": 0.1971,
+            "analytical": 0.121,
+            "creative": 0.3905,
+            "general": 0.2915
+          }
+        },
+        "preprocessing_latency_ms": 7.403899973724037,
+        "forward_latency_ms": 74.01280000340194,
+        "total_policy_latency_ms": 82.65379996737465,
+        "latency_ms": 74.01280000340194,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_114",
+      "query": "Suggest a title for a travel memoir.",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "creative",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.5199,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3284,
+            "single_expert": 0.5199,
+            "system2": 0.1517
+          },
+          "primary_expert": {
+            "technical": 0.0869,
+            "analytical": 0.0945,
+            "creative": 0.5808,
+            "general": 0.2377
+          }
+        },
+        "preprocessing_latency_ms": 6.708900036755949,
+        "forward_latency_ms": 70.15629997476935,
+        "total_policy_latency_ms": 78.63780000479892,
+        "latency_ms": 70.15629997476935,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_115",
+      "query": "Write a closing line for a wedding toast.",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "creative",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.3879,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2657,
+            "single_expert": 0.3464,
+            "system2": 0.3879
+          },
+          "primary_expert": {
+            "technical": 0.124,
+            "analytical": 0.0766,
+            "creative": 0.6801,
+            "general": 0.1194
+          }
+        },
+        "preprocessing_latency_ms": 10.427100001834333,
+        "forward_latency_ms": 106.37200000928715,
+        "total_policy_latency_ms": 118.18650003988296,
+        "latency_ms": 106.37200000928715,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_117",
+      "query": "Who wrote Pride and Prejudice?",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.5799,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1749,
+            "single_expert": 0.6237,
+            "system2": 0.2015
+          },
+          "primary_expert": {
+            "technical": 0.0733,
+            "analytical": 0.0577,
+            "creative": 0.5799,
+            "general": 0.2892
+          }
+        },
+        "preprocessing_latency_ms": 12.840000039432198,
+        "forward_latency_ms": 69.05669998377562,
+        "total_policy_latency_ms": 82.60490000247955,
+        "latency_ms": 69.05669998377562,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_118",
+      "query": "What is photosynthesis?",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.4432,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1794,
+            "single_expert": 0.5465,
+            "system2": 0.2741
+          },
+          "primary_expert": {
+            "technical": 0.2214,
+            "analytical": 0.1464,
+            "creative": 0.189,
+            "general": 0.4432
+          }
+        },
+        "preprocessing_latency_ms": 4.55589999910444,
+        "forward_latency_ms": 59.76540001574904,
+        "total_policy_latency_ms": 66.23820000095293,
+        "latency_ms": 59.76540001574904,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_119",
+      "query": "Why does the Moon have phases?",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.5048,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2089,
+            "single_expert": 0.5875,
+            "system2": 0.2036
+          },
+          "primary_expert": {
+            "technical": 0.1615,
+            "analytical": 0.1745,
+            "creative": 0.1592,
+            "general": 0.5048
+          }
+        },
+        "preprocessing_latency_ms": 12.685200024861842,
+        "forward_latency_ms": 55.800999980419874,
+        "total_policy_latency_ms": 69.26390004809946,
+        "latency_ms": 55.800999980419874,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_124",
+      "query": "What is the largest ocean on Earth?",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.3937,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3446,
+            "single_expert": 0.3937,
+            "system2": 0.2617
+          },
+          "primary_expert": {
+            "technical": 0.2539,
+            "analytical": 0.1202,
+            "creative": 0.1395,
+            "general": 0.4865
+          }
+        },
+        "preprocessing_latency_ms": 7.516499958001077,
+        "forward_latency_ms": 51.08530004508793,
+        "total_policy_latency_ms": 59.386299981269985,
+        "latency_ms": 51.08530004508793,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_127",
+      "query": "What is an eclipse?",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.4373,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.245,
+            "single_expert": 0.5094,
+            "system2": 0.2456
+          },
+          "primary_expert": {
+            "technical": 0.2824,
+            "analytical": 0.1061,
+            "creative": 0.1742,
+            "general": 0.4373
+          }
+        },
+        "preprocessing_latency_ms": 5.629600025713444,
+        "forward_latency_ms": 91.05329995509237,
+        "total_policy_latency_ms": 97.76169998804107,
+        "latency_ms": 91.05329995509237,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_128",
+      "query": "What language is spoken in Brazil?",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.3372,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1774,
+            "single_expert": 0.6161,
+            "system2": 0.2065
+          },
+          "primary_expert": {
+            "technical": 0.2183,
+            "analytical": 0.1223,
+            "creative": 0.3372,
+            "general": 0.3222
+          }
+        },
+        "preprocessing_latency_ms": 9.96970001142472,
+        "forward_latency_ms": 55.87879999075085,
+        "total_policy_latency_ms": 66.68430002173409,
+        "latency_ms": 55.87879999075085,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_131",
+      "query": "What causes thunder?",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.3117,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2853,
+            "single_expert": 0.5975,
+            "system2": 0.1172
+          },
+          "primary_expert": {
+            "technical": 0.2291,
+            "analytical": 0.1921,
+            "creative": 0.2671,
+            "general": 0.3117
+          }
+        },
+        "preprocessing_latency_ms": 7.614400004968047,
+        "forward_latency_ms": 74.06129996525124,
+        "total_policy_latency_ms": 82.72999996552244,
+        "latency_ms": 74.06129996525124,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_132",
+      "query": "What is the difference between a planet and a star?",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.3817,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1626,
+            "single_expert": 0.6424,
+            "system2": 0.195
+          },
+          "primary_expert": {
+            "technical": 0.216,
+            "analytical": 0.1821,
+            "creative": 0.2202,
+            "general": 0.3817
+          }
+        },
+        "preprocessing_latency_ms": 6.928799964953214,
+        "forward_latency_ms": 48.20250003831461,
+        "total_policy_latency_ms": 56.861499964725226,
+        "latency_ms": 48.20250003831461,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_133",
+      "query": "What is an ecosystem?",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.3741,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2904,
+            "single_expert": 0.3741,
+            "system2": 0.3355
+          },
+          "primary_expert": {
+            "technical": 0.2871,
+            "analytical": 0.1618,
+            "creative": 0.1603,
+            "general": 0.3908
+          }
+        },
+        "preprocessing_latency_ms": 9.911699977237731,
+        "forward_latency_ms": 62.080000003334135,
+        "total_policy_latency_ms": 73.19399999687448,
+        "latency_ms": 62.080000003334135,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_134",
+      "query": "What does the word democracy mean?",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.4883,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2963,
+            "single_expert": 0.4883,
+            "system2": 0.2154
+          },
+          "primary_expert": {
+            "technical": 0.1042,
+            "analytical": 0.1123,
+            "creative": 0.1742,
+            "general": 0.6093
+          }
+        },
+        "preprocessing_latency_ms": 10.273699997924268,
+        "forward_latency_ms": 63.72199999168515,
+        "total_policy_latency_ms": 74.7360999812372,
+        "latency_ms": 63.72199999168515,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_135",
+      "query": "Why do leaves appear green?",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.4144,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1718,
+            "single_expert": 0.6319,
+            "system2": 0.1963
+          },
+          "primary_expert": {
+            "technical": 0.1676,
+            "analytical": 0.2276,
+            "creative": 0.1904,
+            "general": 0.4144
+          }
+        },
+        "preprocessing_latency_ms": 7.407700002659112,
+        "forward_latency_ms": 44.56980002578348,
+        "total_policy_latency_ms": 52.82919999444857,
+        "latency_ms": 44.56980002578348,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_138",
+      "query": "What is the chemical symbol for gold?",
+      "split": "validation",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.343,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2993,
+            "single_expert": 0.5104,
+            "system2": 0.1903
+          },
+          "primary_expert": {
+            "technical": 0.343,
+            "analytical": 0.1825,
+            "creative": 0.1788,
+            "general": 0.2957
+          }
+        },
+        "preprocessing_latency_ms": 4.516700049862266,
+        "forward_latency_ms": 68.0593999568373,
+        "total_policy_latency_ms": 73.41110002016649,
+        "latency_ms": 68.0593999568373,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_140",
+      "query": "What is the main purpose of a library?",
+      "split": "test",
+      "expected_execution_class": "single_expert",
+      "expected_primary_expert": "general",
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "general",
+        "confidence": 0.4102,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2993,
+            "single_expert": 0.4102,
+            "system2": 0.2905
+          },
+          "primary_expert": {
+            "technical": 0.1019,
+            "analytical": 0.153,
+            "creative": 0.1061,
+            "general": 0.6389
+          }
+        },
+        "preprocessing_latency_ms": 6.191899999976158,
+        "forward_latency_ms": 67.35240004491061,
+        "total_policy_latency_ms": 74.68340004561469,
+        "latency_ms": 67.35240004491061,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_141",
+      "query": "Read two sales files, join them by customer ID, calculate churn, and write a summary of the findings.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.3765,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2752,
+            "single_expert": 0.3483,
+            "system2": 0.3765
+          },
+          "primary_expert": {
+            "technical": 0.2285,
+            "analytical": 0.3407,
+            "creative": 0.2775,
+            "general": 0.1533
+          }
+        },
+        "preprocessing_latency_ms": 11.224400019273162,
+        "forward_latency_ms": 79.46179999271408,
+        "total_policy_latency_ms": 92.0380000025034,
+        "latency_ms": 79.46179999271408,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_143",
+      "query": "Plan a database migration, write the migration, run checks, and prepare a rollback.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.4319,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2137,
+            "single_expert": 0.3544,
+            "system2": 0.4319
+          },
+          "primary_expert": {
+            "technical": 0.7478,
+            "analytical": 0.1114,
+            "creative": 0.0596,
+            "general": 0.0813
+          }
+        },
+        "preprocessing_latency_ms": 10.179699980653822,
+        "forward_latency_ms": 70.12330001452938,
+        "total_policy_latency_ms": 81.40799996908754,
+        "latency_ms": 70.12330001452938,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_144",
+      "query": "Compare three cloud deployment options using current prices, then recommend one under a budget.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.3585,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3554,
+            "single_expert": 0.3585,
+            "system2": 0.2861
+          },
+          "primary_expert": {
+            "technical": 0.6127,
+            "analytical": 0.189,
+            "creative": 0.0873,
+            "general": 0.111
+          }
+        },
+        "preprocessing_latency_ms": 7.453700003679842,
+        "forward_latency_ms": 72.6208999985829,
+        "total_policy_latency_ms": 81.3328999793157,
+        "latency_ms": 72.6208999985829,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_148",
+      "query": "Review an API implementation, reproduce the reported race, patch it, and test concurrent requests.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.5301,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2069,
+            "single_expert": 0.263,
+            "system2": 0.5301
+          },
+          "primary_expert": {
+            "technical": 0.806,
+            "analytical": 0.0572,
+            "creative": 0.0427,
+            "general": 0.0941
+          }
+        },
+        "preprocessing_latency_ms": 4.972099966835231,
+        "forward_latency_ms": 77.9569000005722,
+        "total_policy_latency_ms": 83.92900001490489,
+        "latency_ms": 77.9569000005722,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_150",
+      "query": "Find current product prices from three stores, compare warranties, and choose one.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.3697,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3009,
+            "single_expert": 0.4871,
+            "system2": 0.2119
+          },
+          "primary_expert": {
+            "technical": 0.2432,
+            "analytical": 0.3697,
+            "creative": 0.1834,
+            "general": 0.2037
+          }
+        },
+        "preprocessing_latency_ms": 7.124099996872246,
+        "forward_latency_ms": 96.76210000179708,
+        "total_policy_latency_ms": 104.75440003210679,
+        "latency_ms": 96.76210000179708,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_151",
+      "query": "Run an experiment with three random seeds, compare the metrics, and save the outputs.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.3833,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3264,
+            "single_expert": 0.2903,
+            "system2": 0.3833
+          },
+          "primary_expert": {
+            "technical": 0.3772,
+            "analytical": 0.4648,
+            "creative": 0.0753,
+            "general": 0.0827
+          }
+        },
+        "preprocessing_latency_ms": 5.411999998614192,
+        "forward_latency_ms": 79.25690000411123,
+        "total_policy_latency_ms": 86.04680001735687,
+        "latency_ms": 79.25690000411123,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_152",
+      "query": "Inspect a log archive, trace the first error, patch the service, and verify recovery.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.4287,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2147,
+            "single_expert": 0.3566,
+            "system2": 0.4287
+          },
+          "primary_expert": {
+            "technical": 0.6618,
+            "analytical": 0.1058,
+            "creative": 0.1008,
+            "general": 0.1315
+          }
+        },
+        "preprocessing_latency_ms": 9.322000027168542,
+        "forward_latency_ms": 82.47289998689666,
+        "total_policy_latency_ms": 92.62860001763329,
+        "latency_ms": 82.47289998689666,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_155",
+      "query": "Design a survey, collect sample responses, analyze them, and report uncertainty.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.351,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.303,
+            "single_expert": 0.3851,
+            "system2": 0.3119
+          },
+          "primary_expert": {
+            "technical": 0.1795,
+            "analytical": 0.351,
+            "creative": 0.3019,
+            "general": 0.1676
+          }
+        },
+        "preprocessing_latency_ms": 4.302799992728978,
+        "forward_latency_ms": 51.36749998200685,
+        "total_policy_latency_ms": 56.820400001015514,
+        "latency_ms": 51.36749998200685,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_156",
+      "query": "Extract tables from several PDFs, merge the rows, check duplicates, and export CSV.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.643,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1109,
+            "single_expert": 0.2461,
+            "system2": 0.643
+          },
+          "primary_expert": {
+            "technical": 0.4961,
+            "analytical": 0.3031,
+            "creative": 0.0863,
+            "general": 0.1144
+          }
+        },
+        "preprocessing_latency_ms": 6.9676999701187015,
+        "forward_latency_ms": 65.84920000750571,
+        "total_policy_latency_ms": 74.0525999572128,
+        "latency_ms": 65.84920000750571,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_157",
+      "query": "Read an issue and its code paths, propose a fix, implement it, and run tests.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.4734,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2211,
+            "single_expert": 0.3054,
+            "system2": 0.4734
+          },
+          "primary_expert": {
+            "technical": 0.8249,
+            "analytical": 0.069,
+            "creative": 0.0418,
+            "general": 0.0643
+          }
+        },
+        "preprocessing_latency_ms": 8.625000016763806,
+        "forward_latency_ms": 82.61330000823364,
+        "total_policy_latency_ms": 92.36230002716184,
+        "latency_ms": 82.61330000823364,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_159",
+      "query": "Measure an endpoint before and after a cache change, then report latency and correctness.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.3815,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2853,
+            "single_expert": 0.3332,
+            "system2": 0.3815
+          },
+          "primary_expert": {
+            "technical": 0.6583,
+            "analytical": 0.2142,
+            "creative": 0.0439,
+            "general": 0.0836
+          }
+        },
+        "preprocessing_latency_ms": 9.903500031214207,
+        "forward_latency_ms": 77.9323999886401,
+        "total_policy_latency_ms": 89.06570001272485,
+        "latency_ms": 77.9323999886401,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_160",
+      "query": "Review a dataset for leakage, repair the split, rerun training, and compare scores.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.4515,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2475,
+            "single_expert": 0.4618,
+            "system2": 0.2907
+          },
+          "primary_expert": {
+            "technical": 0.3383,
+            "analytical": 0.4515,
+            "creative": 0.0691,
+            "general": 0.1411
+          }
+        },
+        "preprocessing_latency_ms": 10.293699975591153,
+        "forward_latency_ms": 55.45330001041293,
+        "total_policy_latency_ms": 66.44089997280389,
+        "latency_ms": 55.45330001041293,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_161",
+      "query": "Create a budget from receipts, categorize expenses, reconcile totals, and export a spreadsheet.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.4647,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2145,
+            "single_expert": 0.3208,
+            "system2": 0.4647
+          },
+          "primary_expert": {
+            "technical": 0.2794,
+            "analytical": 0.3047,
+            "creative": 0.2348,
+            "general": 0.1811
+          }
+        },
+        "preprocessing_latency_ms": 4.793400003109127,
+        "forward_latency_ms": 49.54900004668161,
+        "total_policy_latency_ms": 55.79770001349971,
+        "latency_ms": 49.54900004668161,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_165",
+      "query": "Download a public dataset, check its license, clean it, and build a documented chart.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.3958,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.295,
+            "single_expert": 0.3092,
+            "system2": 0.3958
+          },
+          "primary_expert": {
+            "technical": 0.3921,
+            "analytical": 0.3478,
+            "creative": 0.0939,
+            "general": 0.1661
+          }
+        },
+        "preprocessing_latency_ms": 8.552999992389232,
+        "forward_latency_ms": 71.70230004703626,
+        "total_policy_latency_ms": 81.01850003004074,
+        "latency_ms": 71.70230004703626,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_166",
+      "query": "Trace a failed payment across logs and database records, identify the cause, and prepare a repair.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.3745,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2806,
+            "single_expert": 0.3745,
+            "system2": 0.3449
+          },
+          "primary_expert": {
+            "technical": 0.6684,
+            "analytical": 0.1759,
+            "creative": 0.0797,
+            "general": 0.0759
+          }
+        },
+        "preprocessing_latency_ms": 7.897900009993464,
+        "forward_latency_ms": 81.39990002382547,
+        "total_policy_latency_ms": 90.38070001406595,
+        "latency_ms": 81.39990002382547,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_168",
+      "query": "Compare two model checkpoints on a held-out set, measure latency, and save a report.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.4013,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3014,
+            "single_expert": 0.4013,
+            "system2": 0.2974
+          },
+          "primary_expert": {
+            "technical": 0.5834,
+            "analytical": 0.1862,
+            "creative": 0.098,
+            "general": 0.1325
+          }
+        },
+        "preprocessing_latency_ms": 5.798200028948486,
+        "forward_latency_ms": 73.26769997598603,
+        "total_policy_latency_ms": 80.61650005402043,
+        "latency_ms": 73.26769997598603,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_170",
+      "query": "Inspect five research articles, extract effect sizes, and prepare a comparison table.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.3976,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2296,
+            "single_expert": 0.3976,
+            "system2": 0.3728
+          },
+          "primary_expert": {
+            "technical": 0.1333,
+            "analytical": 0.6677,
+            "creative": 0.1092,
+            "general": 0.0898
+          }
+        },
+        "preprocessing_latency_ms": 8.36380000691861,
+        "forward_latency_ms": 79.63379996363074,
+        "total_policy_latency_ms": 89.38989997841418,
+        "latency_ms": 79.63379996363074,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_175",
+      "query": "Find three suitable conference deadlines, compare submission rules, and plan milestones.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "creative",
+        "confidence": 0.3425,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3572,
+            "single_expert": 0.3869,
+            "system2": 0.2559
+          },
+          "primary_expert": {
+            "technical": 0.1758,
+            "analytical": 0.2195,
+            "creative": 0.3425,
+            "general": 0.2622
+          }
+        },
+        "preprocessing_latency_ms": 13.106999977026135,
+        "forward_latency_ms": 107.64760000165552,
+        "total_policy_latency_ms": 121.4820999884978,
+        "latency_ms": 107.64760000165552,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_176",
+      "query": "Audit an experiment notebook, recreate the environment, rerun it, and compare the saved figures.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.4261,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2026,
+            "single_expert": 0.4261,
+            "system2": 0.3713
+          },
+          "primary_expert": {
+            "technical": 0.2006,
+            "analytical": 0.5526,
+            "creative": 0.1225,
+            "general": 0.1244
+          }
+        },
+        "preprocessing_latency_ms": 5.100500013213605,
+        "forward_latency_ms": 33.12439995352179,
+        "total_policy_latency_ms": 39.02799997013062,
+        "latency_ms": 33.12439995352179,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_179",
+      "query": "Take a set of customer interviews, code the themes, count examples, and write a report.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.4423,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1874,
+            "single_expert": 0.3703,
+            "system2": 0.4423
+          },
+          "primary_expert": {
+            "technical": 0.5267,
+            "analytical": 0.2344,
+            "creative": 0.1517,
+            "general": 0.0873
+          }
+        },
+        "preprocessing_latency_ms": 5.246599961537868,
+        "forward_latency_ms": 40.253000042866915,
+        "total_policy_latency_ms": 46.347199997399,
+        "latency_ms": 40.253000042866915,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_182",
+      "query": "Build an image classifier from a dataset, separate train and test groups, and report errors.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.4206,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2388,
+            "single_expert": 0.3406,
+            "system2": 0.4206
+          },
+          "primary_expert": {
+            "technical": 0.5272,
+            "analytical": 0.2408,
+            "creative": 0.1352,
+            "general": 0.0967
+          }
+        },
+        "preprocessing_latency_ms": 5.831999995280057,
+        "forward_latency_ms": 98.45580003457144,
+        "total_policy_latency_ms": 105.49669997999445,
+        "latency_ms": 98.45580003457144,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_183",
+      "query": "Trace why a scheduled job missed a run, fix the schedule, and verify the next trigger.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.3593,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.3038,
+            "single_expert": 0.3369,
+            "system2": 0.3593
+          },
+          "primary_expert": {
+            "technical": 0.3348,
+            "analytical": 0.2268,
+            "creative": 0.225,
+            "general": 0.2134
+          }
+        },
+        "preprocessing_latency_ms": 11.382299999240786,
+        "forward_latency_ms": 85.43370000552386,
+        "total_policy_latency_ms": 97.76649996638298,
+        "latency_ms": 85.43370000552386,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_186",
+      "query": "Measure GPU inference on CPU and CUDA, verify parameter placement, and compare percentiles.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.4948,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2364,
+            "single_expert": 0.4948,
+            "system2": 0.2688
+          },
+          "primary_expert": {
+            "technical": 0.578,
+            "analytical": 0.254,
+            "creative": 0.0781,
+            "general": 0.09
+          }
+        },
+        "preprocessing_latency_ms": 5.5336999939754605,
+        "forward_latency_ms": 36.65909997653216,
+        "total_policy_latency_ms": 44.68479997012764,
+        "latency_ms": 36.65909997653216,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_188",
+      "query": "Gather current transit schedules, build a route across four stops, and account for transfers.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.3608,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2448,
+            "single_expert": 0.5069,
+            "system2": 0.2483
+          },
+          "primary_expert": {
+            "technical": 0.3608,
+            "analytical": 0.2439,
+            "creative": 0.1844,
+            "general": 0.2109
+          }
+        },
+        "preprocessing_latency_ms": 12.804700003471226,
+        "forward_latency_ms": 75.9657000307925,
+        "total_policy_latency_ms": 89.86489998642355,
+        "latency_ms": 75.9657000307925,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_189",
+      "query": "Inspect a failing CI pipeline, pin the broken dependency, and rerun the job locally.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "system2",
+        "primary_expert": null,
+        "confidence": 0.4721,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.1344,
+            "single_expert": 0.3935,
+            "system2": 0.4721
+          },
+          "primary_expert": {
+            "technical": 0.7573,
+            "analytical": 0.1044,
+            "creative": 0.0542,
+            "general": 0.0842
+          }
+        },
+        "preprocessing_latency_ms": 7.26580002810806,
+        "forward_latency_ms": 77.27849995717406,
+        "total_policy_latency_ms": 85.99799999501556,
+        "latency_ms": 77.27849995717406,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_190",
+      "query": "Split a labeled dataset by patient, tune on validation only, and report held-out accuracy.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.4784,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2903,
+            "single_expert": 0.4784,
+            "system2": 0.2313
+          },
+          "primary_expert": {
+            "technical": 0.262,
+            "analytical": 0.4877,
+            "creative": 0.1308,
+            "general": 0.1194
+          }
+        },
+        "preprocessing_latency_ms": 11.570099974051118,
+        "forward_latency_ms": 92.69310004310682,
+        "total_policy_latency_ms": 105.72619998129085,
+        "latency_ms": 92.69310004310682,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_191",
+      "query": "Collect current energy tariffs, estimate a household bill, and compare two contracts.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.3501,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2878,
+            "single_expert": 0.4628,
+            "system2": 0.2494
+          },
+          "primary_expert": {
+            "technical": 0.233,
+            "analytical": 0.3501,
+            "creative": 0.1734,
+            "general": 0.2434
+          }
+        },
+        "preprocessing_latency_ms": 12.658299994654953,
+        "forward_latency_ms": 77.40720000583678,
+        "total_policy_latency_ms": 90.9562999731861,
+        "latency_ms": 77.40720000583678,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_195",
+      "query": "Review an incident timeline, match events to logs, and write a root-cause report.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.4478,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2354,
+            "single_expert": 0.4478,
+            "system2": 0.3168
+          },
+          "primary_expert": {
+            "technical": 0.5049,
+            "analytical": 0.1425,
+            "creative": 0.1333,
+            "general": 0.2192
+          }
+        },
+        "preprocessing_latency_ms": 5.129600001964718,
+        "forward_latency_ms": 53.86309995083138,
+        "total_policy_latency_ms": 60.393899970222265,
+        "latency_ms": 53.86309995083138,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_197",
+      "query": "Analyze a benchmark result file, spot outliers, rerun affected cases, and report corrected figures.",
+      "split": "test",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "analytical",
+        "confidence": 0.4171,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2062,
+            "single_expert": 0.4171,
+            "system2": 0.3766
+          },
+          "primary_expert": {
+            "technical": 0.1182,
+            "analytical": 0.6762,
+            "creative": 0.0661,
+            "general": 0.1396
+          }
+        },
+        "preprocessing_latency_ms": 11.564200045540929,
+        "forward_latency_ms": 58.743299974594265,
+        "total_policy_latency_ms": 71.00340002216399,
+        "latency_ms": 58.743299974594265,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    },
+    {
+      "id": "route_200",
+      "query": "Inspect a model's training script, remove data leakage, rerun training, and compare test results.",
+      "split": "validation",
+      "expected_execution_class": "system2",
+      "expected_primary_expert": null,
+      "prediction": {
+        "laya_version": "0.3.20",
+        "checkpoint": "convaiinnovations/laya",
+        "checkpoint_path": "C:\\Users\\emanu\\Documents\\Progetti_python\\aveniq\\.hf-cache\\laya",
+        "checkpoint_revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+        "checkpoint_etag": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+        "parameter_count": 421293827,
+        "device": "cuda:0",
+        "parameter_device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "parameter_dtype": "torch.float32",
+        "cuda_device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "cuda_compute_capability": [
+          12,
+          0
+        ],
+        "cuda_allocated_bytes_after_load": 1685436928,
+        "cuda_reserved_bytes_after_load": 1799356416,
+        "execution_class": "single_expert",
+        "primary_expert": "technical",
+        "confidence": 0.4414,
+        "probabilities": {
+          "execution_class": {
+            "direct": 0.2167,
+            "single_expert": 0.4414,
+            "system2": 0.3419
+          },
+          "primary_expert": {
+            "technical": 0.5996,
+            "analytical": 0.2132,
+            "creative": 0.0847,
+            "general": 0.1025
+          }
+        },
+        "preprocessing_latency_ms": 9.429600031580776,
+        "forward_latency_ms": 83.82359996903688,
+        "total_policy_latency_ms": 95.45349999098107,
+        "latency_ms": 83.82359996903688,
+        "backend": "laya.Agent.system_one",
+        "token_usage": null
+      }
+    }
+  ]
+}

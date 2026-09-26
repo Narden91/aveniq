@@ -81,6 +81,11 @@ class BenchmarkResult:
     actual_provider_input_tokens: Optional[int] = None
     actual_provider_output_tokens: Optional[int] = None
     controlling_policy: str = ""
+    task_success: Optional[bool] = None
+
+    @property
+    def execution_success(self) -> bool:
+        return self.success
 
 
 @dataclass
@@ -102,14 +107,15 @@ class BenchmarkReport:
         return len(self.results) - self.passed
 
     @property
-    def task_success_rate_pct(self) -> float:
-        if not self.results:
-            return 0.0
-        return (self.passed / len(self.results)) * 100.0
+    def task_success_rate_pct(self) -> Optional[float]:
+        checked = [r for r in self.results if r.task_success is not None]
+        if not checked:
+            return None
+        return sum(r.task_success is True for r in checked) / len(checked) * 100.0
 
     @property
     def success_rate_pct(self) -> float:
-        return self.task_success_rate_pct
+        return self.passed / len(self.results) * 100.0 if self.results else 0.0
 
     @property
     def execution_class_accuracy(self) -> float:
@@ -385,7 +391,11 @@ class BenchmarkReport:
             "total_cases": len(self.results),
             "passed": self.passed,
             "failed": self.failed,
-            "task_success_rate_pct": round(self.task_success_rate_pct, 1),
+            "task_success_rate_pct": round(self.task_success_rate_pct, 1) if self.task_success_rate_pct is not None else None,
+            "task_checked_count": sum(r.task_success is not None for r in self.results),
+            "task_success_count": sum(r.task_success is True for r in self.results),
+            "execution_success_count": self.passed,
+            "execution_success_rate_pct": round(self.success_rate_pct, 1),
             "success_rate_pct": round(self.success_rate_pct, 1),
             "execution_class_accuracy_pct": round(self.execution_class_accuracy, 1),
             "expert_routing_accuracy_pct": round(self.expert_routing_accuracy, 1),
@@ -423,6 +433,8 @@ class BenchmarkReport:
                     "family": r.case.family,
                     "repeat_index": r.repeat_index,
                     "success": r.success,
+                    "execution_success": r.execution_success,
+                    "task_success": r.task_success,
                     "elapsed_ms": round(r.elapsed_seconds * 1000.0, 2),
                     "execution_class": r.execution_class,
                     "expected_execution_class": r.case.expected_execution_class,
@@ -500,7 +512,8 @@ class BenchmarkReport:
             " AVENIQ BENCHMARK REPORT",
             "=" * 72,
             f"  Total cases           : {len(self.results)}",
-            f"  Passed / Failed       : {self.passed} / {self.failed} (Success: {self.task_success_rate_pct:.1f}%)",
+            f"  Execution success     : {self.passed}/{len(self.results)} ({self.success_rate_pct:.1f}%)",
+            f"  Task success          : {sum(r.task_success is True for r in self.results)}/{sum(r.task_success is not None for r in self.results)} ({f'{self.task_success_rate_pct:.1f}%' if self.task_success_rate_pct is not None else 'not checked'})",
             f"  Execution-class acc.  : {self.execution_class_accuracy:.1f}%",
             f"  Expert-routing acc.   : {self.expert_routing_accuracy:.1f}%",
             f"  False bypass rate     : {self.false_bypass_rate:.1f}% ({self.false_bypass_count} cases)",
@@ -597,7 +610,7 @@ class BenchmarkComparisonReport:
         for variant in self.variants:
             extra = getattr(variant.report, "extra_metrics", {}) or {}
             metrics = {
-                "task_success_rate_pct": round(variant.report.task_success_rate_pct, 1),
+                "task_success_rate_pct": round(variant.report.task_success_rate_pct, 1) if variant.report.task_success_rate_pct is not None else None,
                 "success_rate_pct": round(variant.report.success_rate_pct, 1),
                 "execution_class_accuracy_pct": round(variant.report.execution_class_accuracy, 1),
                 "expert_routing_accuracy_pct": round(variant.report.expert_routing_accuracy, 1),
@@ -634,7 +647,7 @@ class BenchmarkComparisonReport:
 
             delta_dict = {
                 "name": variant.name,
-                "delta_task_success_rate_pct": round(variant.report.task_success_rate_pct - baseline_metrics["task_success_rate_pct"], 1),
+                "delta_task_success_rate_pct": round(variant.report.task_success_rate_pct - baseline_metrics["task_success_rate_pct"], 1) if variant.report.task_success_rate_pct is not None and baseline_metrics["task_success_rate_pct"] is not None else None,
                 "delta_execution_class_accuracy_pct": round(variant.report.execution_class_accuracy - baseline_metrics["execution_class_accuracy_pct"], 1),
                 "delta_expert_routing_accuracy_pct": round(variant.report.expert_routing_accuracy - baseline_metrics["expert_routing_accuracy_pct"], 1),
                 "delta_false_bypass_rate_pct": round(variant.report.false_bypass_rate - baseline_metrics["false_bypass_rate_pct"], 1),
@@ -674,8 +687,9 @@ class BenchmarkComparisonReport:
             laya_lat_str = f"{m['laya_latency_ms_mean']:.1f}ms" if m.get("laya_latency_ms_mean") is not None else "null"
             ece_str = f"{m['expected_calibration_error']:.3f}" if m.get("expected_calibration_error") is not None else "null"
             brier_str = f"{m['brier_score']:.3f}" if m.get("brier_score") is not None else "null"
+            task_success_str = f"{m['task_success_rate_pct']:.1f}%" if m['task_success_rate_pct'] is not None else "not checked"
             lines.append(
-                f"  {item['name']:24s} | success={m['task_success_rate_pct']:5.1f}% | "
+                f"  {item['name']:24s} | execution={m['success_rate_pct']:5.1f}% task={task_success_str} | "
                 f"lat(mean/p50/p95)={m['latency_ms_mean']:5.1f}/{m['latency_ms_p50']:5.1f}/{m['latency_ms_p95']:5.1f}ms | "
                 f"sys2_rate={m['system2_invocation_rate_pct']:5.1f}% | "
                 f"class_acc={m['execution_class_accuracy_pct']:5.1f}% | "
@@ -691,7 +705,7 @@ class BenchmarkComparisonReport:
             for d in summary["deltas"]:
                 lines.append(
                     f"  {d['name']:24s} | "
-                    f"d_success={d.get('delta_task_success_rate_pct', 0.0):+5.1f}% | "
+                    f"d_execution={d.get('delta_success_rate_pct', 0.0):+5.1f}% | "
                     f"d_lat_mean={d.get('delta_latency_ms_mean', 0.0):+6.1f}ms | "
                     f"d_sys2_rate={d.get('delta_system2_invocation_rate_pct', 0.0):+5.1f}% | "
                     f"d_class_acc={d.get('delta_execution_class_accuracy_pct', 0.0):+5.1f}% | "
@@ -805,8 +819,8 @@ class BenchmarkSuite:
                         actual_out_toks = None
                         cost = None
                     else:
-                        actual_inp_toks = token_summary.get("prompt_tokens")
-                        actual_out_toks = token_summary.get("completion_tokens")
+                        actual_inp_toks = token_summary.get("total_input_tokens")
+                        actual_out_toks = token_summary.get("total_output_tokens")
                         cost = float(token_summary.get("estimated_cost_usd", 0.0) or 0.0)
 
                     report.results.append(BenchmarkResult(

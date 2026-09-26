@@ -97,7 +97,15 @@ class OutcomeTrace(BaseModel):
     )
     success: bool = Field(
         default=True,
-        description="Whether the request succeeded",
+        description="Legacy name for execution success; not a task-quality score",
+    )
+    execution_success: bool = Field(
+        default=True,
+        description="Whether the runtime completed without a recorded error",
+    )
+    task_success: Optional[bool] = Field(
+        default=None,
+        description="Whether an external task-specific check passed; absent without a check",
     )
     verification_score: Optional[float] = Field(
         default=None,

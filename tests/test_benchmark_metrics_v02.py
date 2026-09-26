@@ -42,11 +42,16 @@ class TestBenchmarkMetricsSemantics:
         assert report.unnecessary_escalation_rate == 0.0
         assert report.execution_class_accuracy == 100.0
 
-    def test_laya_tokens_are_null_not_zero(self):
+    def test_laya_tokens_are_null_not_zero(self, monkeypatch):
         """Laya is non-generative; token usage must be null/None, never fabricated as 0."""
         from src.aveniq.policy import LayaPolicy
 
         policy = LayaPolicy(mode="control")
+        def mock_laya_prediction(_query):
+            return {"execution_class": "direct", "primary_expert": None,
+                    "confidence": 0.9, "token_usage": None,
+                    "probabilities": {"execution_class": {"direct": 0.9, "single_expert": 0.05, "system2": 0.05}}}
+        monkeypatch.setattr(policy, "predict_laya", mock_laya_prediction)
         decision = policy.evaluate("What is 2 + 2?")
         laya_meta = decision.metadata.get("laya_metadata", {})
 

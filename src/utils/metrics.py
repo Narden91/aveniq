@@ -30,7 +30,8 @@ class TokenRecord:
 # ``TokenTracker.set_pricing``.
 _DEFAULT_PRICING: Dict[str, Dict[str, float]] = {
     # Groq LPU Models
-    "gpt-oss-120b": {"input": 0.45, "output": 0.65},
+    "gpt-oss-120b": {"input": 0.15, "output": 0.60},
+    "openai/gpt-oss-120b": {"input": 0.15, "output": 0.60},
     "gpt-oss-20b": {"input": 0.10, "output": 0.15},
     "qwen-3.6-27b": {"input": 0.25, "output": 0.35},
     "llama-3.3-70b-versatile": {"input": 0.59, "output": 0.79},
