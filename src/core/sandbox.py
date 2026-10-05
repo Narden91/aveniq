@@ -71,12 +71,12 @@ _SAFE_BUILTINS = {
     "frozenset": frozenset, "int": int, "list": list, "set": set, "str": str, "tuple": tuple,
     "abs": abs, "all": all, "any": any, "enumerate": enumerate, "filter": filter,
     "isinstance": isinstance, "len": len, "map": map, "max": max, "min": min,
-    "range": range, "repr": repr, "reversed": reversed, "round": round, "sorted": sorted,
+    "pow": pow, "range": range, "repr": repr, "reversed": reversed, "round": round, "sorted": sorted,
     "sum": sum, "zip": zip, "True": True, "False": False, "None": None,
 }
 
 _BLOCKED_AST_NODES = (
-    ast.Import, ast.ImportFrom, ast.Pow, ast.Mult, ast.LShift, ast.RShift, ast.MatMult,
+    ast.Import, ast.ImportFrom, ast.LShift, ast.RShift, ast.MatMult,
 )
 
 _BLOCKED_ATTRIBUTES: Set[str] = {
